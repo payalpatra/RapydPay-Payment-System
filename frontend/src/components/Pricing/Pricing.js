@@ -1,8 +1,8 @@
-import React from 'react';
-import { Button } from '../../globalStyles';
-import { GiCrystalBars } from 'react-icons/gi';
-import { GiCutDiamond, GiRock } from 'react-icons/gi';
-import { IconContext } from 'react-icons/lib';
+import React from "react";
+import { Button } from "../../globalStyles";
+import { GiCrystalBars } from "react-icons/gi";
+import { GiCutDiamond, GiRock } from "react-icons/gi";
+import { IconContext } from "react-icons/lib";
 import {
   PricingSection,
   PricingWrapper,
@@ -13,45 +13,42 @@ import {
   PricingCardIcon,
   PricingCardPlan,
   PricingCardFeatures,
-  PricingCardFeature
-} from './Pricing.elements';
+  PricingCardFeature,
+} from "./Pricing.elements";
 
 function Pricing() {
   return (
-    <IconContext.Provider value={{ color: '#a9b3c1', size: 64 }}>
+    <IconContext.Provider value={{ color: "#a9b3c1", size: 64 }}>
       <PricingSection>
         <PricingWrapper>
           <PricingHeading>Our Services</PricingHeading>
           <PricingContainer>
-            <PricingCard to='/sign-up'>
+            <PricingCard to="/wallet">
               <PricingCardInfo>
                 <PricingCardIcon>
                   <GiRock />
                 </PricingCardIcon>
                 <PricingCardPlan>Create Wallet</PricingCardPlan>
                 <PricingCardFeatures>
-                  
                   <PricingCardFeature>Some Content</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Learn More</Button>
               </PricingCardInfo>
             </PricingCard>
-            <PricingCard to='/sign-up'>
+            <PricingCard to="/wallet">
               <PricingCardInfo>
                 <PricingCardIcon>
                   <GiCrystalBars />
                 </PricingCardIcon>
                 <PricingCardPlan>Wallet Transfer</PricingCardPlan>
 
-
                 <PricingCardFeatures>
-            
                   <PricingCardFeature>Some Content</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Learn More</Button>
               </PricingCardInfo>
             </PricingCard>
-            <PricingCard to='/sign-up'>
+            <PricingCard to="/products">
               <PricingCardInfo>
                 <PricingCardIcon>
                   <GiCutDiamond />

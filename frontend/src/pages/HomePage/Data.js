@@ -7,12 +7,13 @@ export const homeObjOne = {
   topLine: 'secure online payments',
   headline: 'The Fastest Way to Accept and Send Payments Worldwide',
   description:
-    'Payment Solutions that Power Local and Cross-Border Commerce for Any Business.',
+    'Payment solutions that power Local and cross-border commerce for any business.',
   buttonLabel: 'Get Started',
   imgStart: '',
   img: require('../../images/svg-1.svg').default,
   alt: 'Credit Card',
-  start: ''
+  start: '',
+  link: "/services"
 };
 
 export const homeObjTwo = {
@@ -29,7 +30,8 @@ export const homeObjTwo = {
   imgStart: '',
   img: require('../../images/svg-2.svg').default,
   alt: 'Vault',
-  start: ''
+  start: '',
+  link: "/products"
 };
 
 export const homeObjThree = {
@@ -40,14 +42,15 @@ export const homeObjThree = {
   lightTextDesc: false,
   topLine: 'eWallet',
   headline:
-    'Expand beyond a card-based wallet to gain flexibility and global coverage',
+    'Expand Beyond a Card Based Wallet To Gain Flexibility And Gobal Coverage',
   description:
-    "The RapydPay Global Payments Network supports a range of wallet services including like creating your own wallet, Transfer, accessing transactions.",
+    "The RapydPay global payments network supports a range of wallet services including like creating your own wallet, transfer, accessing transactions.",
   buttonLabel: 'Create Your Wallet',
   imgStart: 'start',
   img: require('../../images/benefits-wallet.png').default,
   alt: 'Vault',
-  start: 'true'
+  start: 'true',
+  link: "/wallet"
 };
 
 export const homeObjFour = {
@@ -64,6 +67,7 @@ export const homeObjFour = {
   imgStart: 'start',
   img: require('../../images/svg-3.svg').default,
   alt: 'Vault',
-  start: 'true'
+  start: 'true',
+  link: "/sign-up"
 };
 

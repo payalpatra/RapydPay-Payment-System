@@ -9,22 +9,23 @@ export const homeObjOne = {
   buttonLabel: 'Get Started',
   imgStart: '',
   img: require('../../images/svg-1.svg').default,
-  alt: 'Credit Card'
+  alt: 'Credit Card',
+  link: "/wallet"
 };
 
-export const homeObjTwo = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
-  topLine: '100% Secure',
-  headline: 'Stay protected 24/7 anywhere anytime',
-  description:
-    'We have you covered no matter where you are located. Over 140 locations worldwide to ensure you have access anytime',
-  buttonLabel: 'Learn More',
-  imgStart: '',
-  img: require('../../images/svg-1.svg').default,
-  alt: 'Vault'
-};
+// export const homeObjTwo = {
+//   lightBg: false,
+//   lightText: true,
+//   lightTextDesc: true,
+//   topLine: '100% Secure',
+//   headline: 'Stay protected 24/7 anywhere anytime',
+//   description:
+//     'We have you covered no matter where you are located. Over 140 locations worldwide to ensure you have access anytime',
+//   buttonLabel: 'Learn More',
+//   imgStart: '',
+//   img: require('../../images/svg-1.svg').default,
+//   alt: 'Vault'
+// };
 
 export const homeObjThree = {
   lightBg: true,
@@ -37,7 +38,8 @@ export const homeObjThree = {
   buttonLabel: 'Start Now',
   imgStart: 'start',
   img: require('../../images/svg-1.svg').default,
-  alt: 'Vault'
+  alt: 'Vault',
+  link: "/sign-up"
 };
 
 

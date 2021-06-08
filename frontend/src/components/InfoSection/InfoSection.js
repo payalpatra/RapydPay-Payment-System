@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {Link as Scroll} from "react-scroll";
 import { Container, Button } from '../../globalStyles';
 import {
   InfoSec,
@@ -23,10 +24,12 @@ function InfoSection({
   headline,
   description,
   buttonLabel,
+  link,
   img,
   alt,
   imgStart,
-  start
+  start,
+  scroll
 }) {
   return (
     <>
@@ -38,11 +41,18 @@ function InfoSection({
                 <TopLine lightTopLine={lightTopLine}>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headline}</Heading>
                 <Subtitle lightTextDesc={lightTextDesc}>{description}</Subtitle>
-                <Link to='/sign-up'>
+            {link ? (<Link exact to={link}>
                   <Button big fontBig primary={primary}>
                     {buttonLabel}
                   </Button>
-                </Link>
+                </Link>)
+                :
+                (<Scroll spy={true} smooth={true} to={scroll}>
+                  <Button big fontBig primary={primary}>
+                    {buttonLabel}
+                  </Button>
+                </Scroll>)
+                }
               </TextWrapper>
             </InfoColumn>
             <InfoColumn>
