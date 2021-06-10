@@ -12,9 +12,13 @@
   "author": "Payal Patra",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "path": "^0.12.7"
+    "mongoose": "^5.12.13",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",

@@ -41,7 +41,7 @@ function InfoSection({
                 <TopLine lightTopLine={lightTopLine}>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headline}</Heading>
                 <Subtitle lightTextDesc={lightTextDesc}>{description}</Subtitle>
-            {link ? (<Link exact to={link}>
+            {link ? (<Link to={link}>
                   <Button big fontBig primary={primary}>
                     {buttonLabel}
                   </Button>

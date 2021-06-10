@@ -25,7 +25,7 @@ import {
 function Footer() {
   return (
     <FooterContainer>
- 
+
       <FooterLinksContainer>
         <FooterLinksWrapper>
           <FooterLinkItems>
@@ -76,12 +76,7 @@ function Footer() {
               <FaInstagram />
             </SocialIconLink>
             <SocialIconLink
-              href={
-                '//www.youtube.com/channel/UCsKsymTY_4BYR-wytLjex7A?view_as=subscriber'
-              }
-              rel='noopener noreferrer'
-              target='_blank'
-              aria-label='Youtube'
+              href='/' target='_blank' aria-label='Youtube'
             >
               <FaYoutube />
             </SocialIconLink>

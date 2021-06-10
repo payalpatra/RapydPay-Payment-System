@@ -9,12 +9,35 @@ export const ProductsSection = styled.div`
   background: #4b59f7;
 `;
 
+export const WalletsSection = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffff;
+`;
+
+
 export const ProductsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
 
+  @media screen and (max-width: 960px) {
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+
+export const WalletsWrapper = styled.div`
+  display: flex;
+  flex-direction: start;
+  align-items: center;
+  margin: 0 auto;
   @media screen and (max-width: 960px) {
     margin: 0 30px;
     display: flex;
@@ -46,6 +69,22 @@ max-width: 1000px;
   }
 `;
 
+export const WalletsContainer = styled.div`
+max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  @media screen and (max-width: 960px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+`;
 export const ProductsCard = styled(Link)`
   background: #242424;
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.2);
@@ -55,10 +94,33 @@ export const ProductsCard = styled(Link)`
   margin-right: 18px;
   margin-bottom: 20px;
   border-radius: 4px;
-  /* &:nth-child(2) {
-    margin: 24px;
-  } */
 
+  &:hover {
+    transform: scale(1.06);
+    transition: all 0.3s ease-out;
+    color: #1c2237;
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 90%;
+    margin-right: 0px;
+    &:hover {
+      transform: none;
+    }
+  }
+`;
+
+
+
+export const WalletsCard = styled(Link)`
+  background: #242424;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.2);
+  width: 480px;
+  height: 330px;
+  text-decoration: none;
+  margin-right: 18px;
+  margin-bottom: 20px;
+  border-radius: 4px;
 
   &:hover {
     transform: scale(1.06);

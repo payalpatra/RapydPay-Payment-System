@@ -42,16 +42,4 @@ function ProductCard() {
 }
 
 export default ProductCard
-    // <ProductsCard>
-    // <ProductsCardInfo>
-    //     <ProductsCardIcon>
-    //         <img src={imgSrc} style={{ height: "150px", width: "200px" }} alt="" />
-    //     </ProductsCardIcon>
-    //     <ProductsCardPlan>{title}</ProductsCardPlan>
-    //     <ProductsCardFeatures>
-    //         <ProductsCardFeature>Price: $ {price}</ProductsCardFeature>
-    //     </ProductsCardFeatures>
-    //     <Button primary>Buy Now</Button>
-    // </ProductsCardInfo>
-
-    //                         </ProductsCard>
+  
