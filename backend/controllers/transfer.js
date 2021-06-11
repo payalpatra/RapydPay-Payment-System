@@ -6,7 +6,7 @@ const getHelpers = require("../functions/helpers");
 const Transaction = require("../models/Transaction");
 const confirmation = require("../controllers/confirmation");
 const Wallet = require("../models/Wallet");
-const updateBalance = require("../controllers/updateBalance");
+
 
 const helpers = getHelpers();
 
@@ -67,26 +67,28 @@ module.exports = function (req, res) {
         console.log(newTransaction + "Added")
 
 
-        // Find the id of source wallet and destination wallet
+        // Find the id of the source wallet and Update The Balance !!
         try {
             let sourceWalletDetails = await Wallet.findOne({ "ewallet_id": source_ewallet.toString() })
-            Wallet.updateOne({ _id: sourceWalletDetails._id }, { balance: sourceWalletDetails.balance - amount })
-            console.log("UPDATION SUCCESS")
+            Wallet.updateOne({ _id: sourceWalletDetails._id }, { balance: sourceWalletDetails.balance - parseInt(amount) }).then(() => console.log(sourceWalletDetails))
+
+
+            let destinationWalletDetails = await Wallet.findOne({ "ewallet_id": destination_ewallet.toString() })
+            Wallet.updateOne({ _id: destinationWalletDetails._id }, { balance: destinationWalletDetails.balance + parseInt(amount) }).then(() => console.log(destinationWalletDetails))
         } catch (error) {
             console.error(error);
         }
 
-
-        // Update The source Wallet Balance and
+        // Find the id of the Destination wallet and Update The Balance !!
         // try {
-        //     let UpdatedDetails = await Wallet.updateOne({ _id: sourceWalletDetails.newBalance }, { balance: newBalance })
-        //     console.log("I AM THE UPADTED Details", UpdatedDetails)
+        //     let destinationWalletDetails = await Wallet.findOne({ "ewallet_id": destination_ewallet.toString() })
+        //     Wallet.updateOne({ _id: destinationWalletDetails._id }, { balance: destinationWalletDetails.balance + amount })
+        //     console.log("DESTINATION BALANCE UPDATION SUCCESSFULL")
         // } catch (error) {
-        //     console.log(error);
+        //     console.error(error);
         // }
-        // console.log(ans)
-        // To Update Balance !!
-        // updateBalance(source_ewallet, destination_ewallet, amount)
+
+
 
     });
 

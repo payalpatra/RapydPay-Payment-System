@@ -11,7 +11,6 @@ const walletDetails = require("./controllers/walletDetails");
 const listTransactions = require("./controllers/listTransactions");
 const checkout = require("./controllers/checkout");
 const allWallets = require("./controllers/allWallets");
-const updateBalance = require("./controllers/updateBalance")
 const conectDB = require("./config/db")
 
 // Initializing APP
@@ -35,8 +34,7 @@ app.post("/transfer", transfer)
 app.post("/confirmation", confirmation)
 
 
-// ------------------------ Update Balance After Confirmation ------------------- \\
-app.patch("/:id", updateBalance)
+
 
 // ------------------------ Retrieve Wallet Contact----------------------- \\
 
