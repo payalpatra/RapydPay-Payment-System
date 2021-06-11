@@ -6,8 +6,8 @@ const getHelpers = require("../functions/helpers");
 
 const helpers = getHelpers();
 
-module.exports = function (req, res) {
-    let { id } = req.body;
+module.exports = function (id) {
+    // let { id } = req.body;
     let body = {
         "id": id,
         "status": "accept"
@@ -30,6 +30,6 @@ module.exports = function (req, res) {
 
     request(requestData, function (err, res, body) {
         response = JSON.parse(res.body)
-        console.log(response)
+        // console.log(response)
     });
 }

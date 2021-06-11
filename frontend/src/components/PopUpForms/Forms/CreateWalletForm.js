@@ -12,6 +12,9 @@ import {
 } from "../../SignUpForm/SignUp.elements";
 
 function CreateWalletForm() {
+    const [success, setSuccess] = useState(false);
+    const [failure, setFailure] = useState(false);
+
     let ewallet_reference_id = Math.floor(Math.random() * 1000000000) + 1 + Math.floor(Math.random() * 1000000000) + 1
     let balance = 0;
     const [wallet, setWallet] = useState({
@@ -21,7 +24,7 @@ function CreateWalletForm() {
         "type": "person",
         "phone_number": "",
         "email": "",
-        "balance":balance
+        "balance": balance
     });
 
 
@@ -39,20 +42,48 @@ function CreateWalletForm() {
     const getWalletDetails = () => {
 
 
-        const { first_name, last_name, ewallet_reference_id, type, phone_number, email,balance } = wallet;
+        const { first_name, last_name, ewallet_reference_id, type, phone_number, email, balance } = wallet;
         console.log(wallet);
 
-        const response = fetch("ewallet", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                first_name, last_name, ewallet_reference_id, type, phone_number, email, balance
-            })
-        });
+        if (!first_name || !last_name || !phone_number || !email) {
+            setFailure(true)
+            console.log("Wallet Creation Failed")
+        } else {
 
-        console.log(response)
+            // const response = fetch("ewallet", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify({
+            //         first_name, last_name, ewallet_reference_id, type, phone_number, email, balance
+            //     })
+            // });
+
+
+            if (failure === true) {
+                setFailure(false)
+                setSuccess(true);
+            } else {
+                setSuccess(true);
+            }
+
+            /// Clearing The Form Data 
+            setWallet({
+                "first_name": "",
+                "last_name": "",
+                "ewallet_reference_id": ewallet_reference_id,
+                "type": "person",
+                "phone_number": "",
+                "email": "",
+                "balance": balance
+            })
+
+            // console.log(response)
+            console.log("Wallet Created")
+
+        }
+
 
 
     }
@@ -69,7 +100,7 @@ function CreateWalletForm() {
         <FormWrap>
 
             <FormContent>
-                <Form3 >
+                <Form3 style={{ marginTop: "50px", paddingTop: "0px" }}>
                     <FormLabel htmlFor="for">First Name</FormLabel>
                     <FormInput
                         type="text"
@@ -112,6 +143,8 @@ function CreateWalletForm() {
                         placeholder="Enter Your email"
                         required
                     />
+                    {success === true && <p style={{ color: "#ffff" }}>Transaction Successfull</p>}
+                    {failure === true && <p style={{ color: "#ffff" }}>Please Fill up all the credentials</p>}
                     <FormButton onClick={createWallet}>
                         Create Wallet
                     </FormButton>

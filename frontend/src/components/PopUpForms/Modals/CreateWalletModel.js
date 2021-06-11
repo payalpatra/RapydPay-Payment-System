@@ -24,7 +24,7 @@ const ModalWrapper = styled.div`
   width: 500px;
   height: auto;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: #010101;
   color: #000;
   display: grid;
   margin: 0 auto;
@@ -97,6 +97,7 @@ function CreateWalletModel({ showModal, setShowModal }) {
                         <ModalWrapper showModal={showModal}>
                             <CreateWalletForm />
                             <CloseModalButton
+                            style={{color:"#fff"}}
                                 aria-label='Close modal'
                                 onClick={() => setShowModal(prev => !prev)}
                             />

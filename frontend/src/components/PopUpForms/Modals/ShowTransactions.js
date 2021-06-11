@@ -4,6 +4,13 @@ import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 
 
+import {
+
+  ProductsCardPlan,
+  ProductsCardFeatures,
+  ProductsCardFeature,
+} from "../../ProductsCard/ProductCard.elements.js";
+
 
 const Background = styled.div`
   width: 100%;
@@ -25,7 +32,7 @@ const ModalWrapper = styled.div`
   width: 500px;
   height: auto;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: #101522;
   color: #000;
   display: grid;
   margin: 0 auto;
@@ -95,15 +102,27 @@ function ShowTransactions({ showModal, setShowModal }) {
           <animated.div style={animation}>
             <ModalWrapper showModal={showModal}>
 
-              <div style={{ display: "flex", justifyContent: "center", flexDirection: "column", width: "100%", height: "auto" }}>
-                <div style={{ display: 'flex' }}>
-                  <div style={{marginRight: "50px"}} >PAID TO 8249956286 </div>
-                  <div>200 </div>
-                </div>
-                <div>
-                  12 may 2021
-              </div>
-              </div>
+              {/* TRANSACTION CONTENT START  */}
+              <ProductsCardPlan></ProductsCardPlan>
+              <ProductsCardFeatures style={{ marginTop: "5px", marginBottom: "20px" }}>
+                <ProductsCardFeature style={{ fontSize: "18px", color: "#ffff", marginBottom: "20px" }}>Paid To : 8249956286</ProductsCardFeature>
+                <ProductsCardFeature>Amount : $200</ProductsCardFeature>
+                <ProductsCardFeature>Date : 8:90AM 21MAY 20120</ProductsCardFeature>
+                <ProductsCardFeature>Transaction Id: 800bfaa6-ca01-11eb-b38b-02240218ee6d</ProductsCardFeature>
+              </ProductsCardFeatures>
+              {/* TRANSACTION CONTENT END  */}
+
+
+
+              {/* TRANSACTION CONTENT START  */}
+              <ProductsCardPlan></ProductsCardPlan>
+              <ProductsCardFeatures style={{ marginTop: "5px", marginBottom: "20px" }}>
+                <ProductsCardFeature style={{ fontSize: "18px", color: "#ffff", marginBottom: "20px" }}>Paid To : 8249956286</ProductsCardFeature>
+                <ProductsCardFeature>Amount : $200</ProductsCardFeature>
+                <ProductsCardFeature>Date : 8:90AM 21MAY 20120</ProductsCardFeature>
+                <ProductsCardFeature>Transaction Id: 800bfaa6-ca01-11eb-b38b-02240218ee6d</ProductsCardFeature>
+              </ProductsCardFeatures>
+              {/* TRANSACTION CONTENT END  */}
 
 
               <CloseModalButton

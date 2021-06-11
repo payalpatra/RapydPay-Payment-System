@@ -98,6 +98,23 @@ export const Form3 = styled.form`
   }
 `;
 
+export const Form4 = styled.form`
+  background: #010101;
+  width: 800px;
+  height:auto;
+  width: 100%;
+  z-index: 1;
+  display: grid;
+  margin: 0 auto;
+  padding: 80px 32px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+
+  @media screen and (max-width: 400px) {
+    padding: 32px 32px;
+  }
+`;
+
 
 
 export const FormH1 = styled.h1`

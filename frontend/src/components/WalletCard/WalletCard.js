@@ -27,7 +27,7 @@ function WalletCard() {
     }, []);
 
 
-    
+
 
     return (
         <div id="walletsComponent" style={{ marginBottom: "50px" }}>
@@ -45,16 +45,14 @@ function WalletCard() {
                                         email={wallet.email}
                                         rapydId={wallet.rapydId}
                                         balance={wallet.balance}
-                                        ewallet_id ={wallet.ewallet_id}
+                                        ewallet_id={wallet.ewallet_id}
 
                                     />
                                 )
 
                                 )
 
-
                             }
-
 
                         </WalletsContainer>
 
