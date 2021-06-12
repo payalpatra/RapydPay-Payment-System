@@ -85,6 +85,27 @@ max-width: 1000px;
     width: 100%;
   }
 `;
+
+
+export const TransactionsContainer = styled.div`
+max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  @media screen and (max-width: 960px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+`;
+
+
+
 export const ProductsCard = styled(Link)`
   background: #242424;
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.2);
@@ -117,6 +138,32 @@ export const WalletsCard = styled(Link)`
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.2);
   width: 480px;
   height: 330px;
+  text-decoration: none;
+  margin-right: 18px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+
+  &:hover {
+    transform: scale(1.06);
+    transition: all 0.3s ease-out;
+    color: #1c2237;
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 90%;
+    margin-right: 0px;
+    &:hover {
+      transform: none;
+    }
+  }
+`;
+
+
+export const TransactionsCard = styled(Link)`
+  background: #242424;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.2);
+  /* width: 700px; */
+  height:190px;
   text-decoration: none;
   margin-right: 18px;
   margin-bottom: 20px;

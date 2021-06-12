@@ -8,3 +8,8 @@ export const homeObjTwo = {
     lightBg: true,
     headline: 'Wallets',
 };
+
+export const homeObjThree = {
+    lightBg:true,
+    headline: 'Transactions',
+};

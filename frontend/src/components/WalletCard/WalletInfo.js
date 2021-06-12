@@ -7,13 +7,13 @@ import {
     ProductsCardFeature,
 } from "../ProductsCard/ProductCard.elements.js";
 import { Button } from "../../globalStyles";
-import Modal from "../PopUpForms/Modals/ShowTransactions";
+import { Link as Scroll } from "react-scroll";
 import TransferModal from "../PopUpForms/Modals/TransferModel";
 
 
 function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balance }) {
 
-    const [showModal, setShowModal] = useState(false);
+    // const [showModal, setShowModal] = useState(false);
     const [show, set] = useState(false);
     const [clickedWallet, setclickedWallet] = useState({
         "fullName": "",
@@ -26,9 +26,9 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
 
 
     // For Transaction
-    const openModal = () => {
-        setShowModal(prev => !prev);
-    };
+    // const openModal = () => {
+    //     setShowModal(prev => !prev);
+    // };
 
     // For Money Transfer
     const openTheModal = () => {
@@ -58,11 +58,9 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
 
     // To Show Transactions Model and get the clicked ewallet_id
     const showTransaction = () => {
-        openModal()
-        console.log(ewallet_id)
+        // send clickedWallet Details to Transaction Card or to List Transactions Backend
+                console.log(ewallet_id)
     }
-
-
 
 
 
@@ -73,7 +71,7 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
                 <ProductsCardFeatures style={{ marginTop: "5px", marginBottom: "20px" }}>
                     <ProductsCardFeature style={{ fontSize: "18px", color: "#ffff", marginBottom: "20px" }}>Balance: ${balance}</ProductsCardFeature>
                     <ProductsCardFeature>{phone_number}</ProductsCardFeature>
-                    <ProductsCardFeature>{ewallet_id}</ProductsCardFeature>
+                    <ProductsCardFeature>{ewallet_id.slice(8)}</ProductsCardFeature>
                     <ProductsCardFeature>{email}</ProductsCardFeature>
                 </ProductsCardFeatures>
 
@@ -82,9 +80,13 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
                 <TransferModal clickedWallet={clickedWallet} ewallet_id={ewallet_id} rapydId={rapydId} showModal={show} setShowModal={set}
 
                 />
+                <Scroll spy={true} smooth={true} to="TransactionsComponent">
+
                 <Button primary onClick={showTransaction}>
                     View Transactions</Button>
-                <Modal showModal={showModal} setShowModal={setShowModal} />
+                </Scroll>
+
+                    {/* TransactionsComponent */}
             </ProductsCardInfo>
         </WalletsCard>
     )

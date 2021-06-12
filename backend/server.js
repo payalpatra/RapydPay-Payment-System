@@ -41,7 +41,7 @@ app.post("/confirmation", confirmation)
 app.post("/walletDetails", walletDetails)
 
 // ------------------ List Transactions of a particular e-wallet ---------------- \\
-app.post("/listTransactions", listTransactions)
+app.get("/listTransactions", listTransactions)
 
 // --------------------------- Checkout --------------------------- \\
 app.post("/checkout", checkout)

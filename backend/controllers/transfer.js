@@ -45,7 +45,7 @@ module.exports = function (req, res) {
     request(requestData, async function (err, res, body) {
         response = JSON.parse(res.body)
         const id = response.data.id
-
+        console.log(response.data)
         console.log(id)
 
         // Confirmation Of the Transaction !!
@@ -67,26 +67,17 @@ module.exports = function (req, res) {
         console.log(newTransaction + "Added")
 
 
-        // Find the id of the source wallet and Update The Balance !!
         try {
+            // Find the id of the source wallet and Update The Balance !!
             let sourceWalletDetails = await Wallet.findOne({ "ewallet_id": source_ewallet.toString() })
             Wallet.updateOne({ _id: sourceWalletDetails._id }, { balance: sourceWalletDetails.balance - parseInt(amount) }).then(() => console.log(sourceWalletDetails))
 
-
+            // Find the id of the Destination wallet and Update The Balance !!
             let destinationWalletDetails = await Wallet.findOne({ "ewallet_id": destination_ewallet.toString() })
             Wallet.updateOne({ _id: destinationWalletDetails._id }, { balance: destinationWalletDetails.balance + parseInt(amount) }).then(() => console.log(destinationWalletDetails))
         } catch (error) {
             console.error(error);
         }
-
-        // Find the id of the Destination wallet and Update The Balance !!
-        // try {
-        //     let destinationWalletDetails = await Wallet.findOne({ "ewallet_id": destination_ewallet.toString() })
-        //     Wallet.updateOne({ _id: destinationWalletDetails._id }, { balance: destinationWalletDetails.balance + amount })
-        //     console.log("DESTINATION BALANCE UPDATION SUCCESSFULL")
-        // } catch (error) {
-        //     console.error(error);
-        // }
 
 
 

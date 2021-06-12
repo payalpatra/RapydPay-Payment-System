@@ -115,11 +115,13 @@ function TransferModel({ showModal, setShowModal, clickedWallet }) {
         });
     };
 
+
+    // Posting Transfer Details
     const PostData = async () => {
         let Data = {
             source_ewallet: clickedWallet.ewallet_id,
             amount: transferDetails.amount.toString(),
-            destination_ewallet: transferDetails.destination_ewallet,
+            destination_ewallet: "ewallet_" + transferDetails.destination_ewallet,
         };
         if (!Data.amount || !Data.destination_ewallet) {
             setFailure(true);
@@ -151,23 +153,18 @@ function TransferModel({ showModal, setShowModal, clickedWallet }) {
                 destination_ewallet: "",
             });
 
-            // console.log(response);
+            console.log(response);
             console.log("Transfer Succesfful");
         }
     };
 
     const sendMoney = () => {
-        //// Post Request to /transfer
-        PostData();
+        //// Post Request to transfer
+        // PostData();
+
         console.log("I am the clicked wallet ", clickedWallet);
     };
 
-    // if (clickedWallet.rapydId !== ewallet_id) {
-    //     console.log("i am clicked", clickedWallet.ewallet_id)
-    //     console.log("I am restWallets", ewallet_id)
-    //     setunclicked(ewallet_id)
-
-    // }
 
     return (
         <>

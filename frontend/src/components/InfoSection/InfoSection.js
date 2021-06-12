@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Link as Scroll} from "react-scroll";
+import { Link as Scroll } from "react-scroll";
 import { Container, Button } from '../../globalStyles';
 import {
   InfoSec,
@@ -41,17 +41,17 @@ function InfoSection({
                 <TopLine lightTopLine={lightTopLine}>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headline}</Heading>
                 <Subtitle lightTextDesc={lightTextDesc}>{description}</Subtitle>
-            {link ? (<Link to={link}>
+                {link ? (<Link to={link}>
                   <Button big fontBig primary={primary}>
                     {buttonLabel}
                   </Button>
                 </Link>)
-                :
-                (<Scroll spy={true} smooth={true} to={scroll}>
-                  <Button big fontBig primary={primary}>
-                    {buttonLabel}
-                  </Button>
-                </Scroll>)
+                  :
+                  (<Scroll spy={true} smooth={true} to={scroll}>
+                    <Button big fontBig primary={primary}>
+                      {buttonLabel}
+                    </Button>
+                  </Scroll>)
                 }
               </TextWrapper>
             </InfoColumn>
