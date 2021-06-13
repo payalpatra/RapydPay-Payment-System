@@ -62,7 +62,7 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-function TransferModel({ showModal, setShowModal, clickedWallet }) {
+function TransferModel({ showModal, setShowModal, clickedTWallet }) {
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
 
@@ -119,17 +119,17 @@ function TransferModel({ showModal, setShowModal, clickedWallet }) {
     // Posting Transfer Details
     const PostData = async () => {
         let Data = {
-            source_ewallet: clickedWallet.ewallet_id,
+            source_ewallet: clickedTWallet.ewallet_id,
             amount: transferDetails.amount.toString(),
             destination_ewallet: "ewallet_" + transferDetails.destination_ewallet,
         };
-        if (!Data.amount || !Data.destination_ewallet) {
+        // console.log(Data.destination_ewallet.length)
+        if (!Data.amount || !Data.destination_ewallet || Data.destination_ewallet.length < 48) {
             setFailure(true);
-            console.log("transfer Unsuccessful");
+            
         } else {
 
             // Transfering Money Between Walllets !!
-
             const response = await fetch("/transfer", {
                 method: "POST",
                 headers: {
@@ -159,10 +159,10 @@ function TransferModel({ showModal, setShowModal, clickedWallet }) {
     };
 
     const sendMoney = () => {
-        //// Post Request to transfer
-        // PostData();
+        // Post Request to transfer
+        PostData();
 
-        console.log("I am the clicked wallet ", clickedWallet);
+        console.log("I am the clicked wallet ", clickedTWallet);
     };
 
 
@@ -175,13 +175,13 @@ function TransferModel({ showModal, setShowModal, clickedWallet }) {
                             {/* Form */}
                             <FormWrap>
                                 <FormContent>
-                                    <Form4>
+                                    <Form4 autoComplete="off">
                                         <FormLabel htmlFor="for">From Wallet ID</FormLabel>
                                         <FormInput
                                             type="text"
                                             id="Input1"
                                             name="source_ewallet"
-                                            value={clickedWallet.ewallet_id}
+                                            value={clickedTWallet.ewallet_id}
                                             onChange={InputEvent}
                                             placeholder="Enter Your First Name"
                                             required
@@ -190,6 +190,7 @@ function TransferModel({ showModal, setShowModal, clickedWallet }) {
                                         <FormLabel htmlFor="for">Amount</FormLabel>
                                         <FormInput
                                             type="text"
+                                            autocomplete="off"
                                             id="Input2"
                                             name="amount"
                                             value={transferDetails.amount}
@@ -202,6 +203,7 @@ function TransferModel({ showModal, setShowModal, clickedWallet }) {
                                         <FormInput
                                             type="text"
                                             id="Input3"
+                                            autoComplete="off"
                                             name="destination_ewallet"
                                             value={transferDetails.destination_ewallet}
                                             onChange={InputEvent}
@@ -214,7 +216,7 @@ function TransferModel({ showModal, setShowModal, clickedWallet }) {
                                         )}
                                         {failure === true && (
                                             <p style={{ color: "#ffff" }}>
-                                                Please Fill up all the credentials
+                                                Please Fill up Valid credentials
                                             </p>
                                         )}
                                         <FormButton onClick={sendMoney}>Send</FormButton>

@@ -14,6 +14,7 @@ import {
 function CreateWalletForm() {
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
+    const [fail, setFail] = useState(false);
 
     let ewallet_reference_id = Math.floor(Math.random() * 1000000000) + 1 + Math.floor(Math.random() * 1000000000) + 1
     let balance = 0;
@@ -48,22 +49,31 @@ function CreateWalletForm() {
         if (!first_name || !last_name || !phone_number || !email) {
             setFailure(true)
             console.log("Wallet Creation Failed")
+
+        } else if (phone_number.slice(0, 1) !== "+" || phone_number.length < 10) {
+            setFail(true)
+            console.log("Wallet Creation Failed")
+
         } else {
 
-            // const response = fetch("ewallet", {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify({
-            //         first_name, last_name, ewallet_reference_id, type, phone_number, email, balance
-            //     })
-            // });
+            const response = fetch("ewallet", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    first_name, last_name, ewallet_reference_id, type, phone_number, email, balance
+                })
+            });
 
 
-            if (failure === true) {
+            if (failure === true || fail === true) {
+                setFail(false);
                 setFailure(false)
                 setSuccess(true);
+            } else if (success === true) {
+                setSuccess(true);
+
             } else {
                 setSuccess(true);
             }
@@ -79,9 +89,9 @@ function CreateWalletForm() {
                 "balance": balance
             })
 
-            // console.log(response)
+   
             console.log("Wallet Created")
-
+            console.log(response)
         }
 
 
@@ -143,8 +153,9 @@ function CreateWalletForm() {
                         placeholder="Enter Your email"
                         required
                     />
-                    {success === true && <p style={{ color: "#ffff" }}>Transaction Successfull</p>}
+                    {success === true && <p style={{ color: "#ffff" }}>Your Wallet Created</p>}
                     {failure === true && <p style={{ color: "#ffff" }}>Please Fill up all the credentials</p>}
+                    {fail === true && <p style={{ color: "#ffff" }}>Invalid Phone Number</p>}
                     <FormButton onClick={createWallet}>
                         Create Wallet
                     </FormButton>

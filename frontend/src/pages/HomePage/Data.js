@@ -10,7 +10,7 @@ export const homeObjOne = {
     'Payment solutions that power Local and cross-border commerce for any business.',
   buttonLabel: 'Get Started',
   imgStart: '',
-  img: require('../../images/svg-1.svg').default,
+  img: require('../../images/payment.png').default,
   alt: 'Credit Card',
   start: '',
   link: "/services"

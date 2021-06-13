@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {
     WalletsCard,
     ProductsCardInfo,
@@ -9,26 +9,23 @@ import {
 import { Button } from "../../globalStyles";
 import { Link as Scroll } from "react-scroll";
 import TransferModal from "../PopUpForms/Modals/TransferModel";
-
+import { Context } from "../../Store";
 
 function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balance }) {
 
-    // const [showModal, setShowModal] = useState(false);
     const [show, set] = useState(false);
-    const [clickedWallet, setclickedWallet] = useState({
+    const [isClicked, setIsClicked] = useState(false)
+    const [clickedTWallet, setclickedTWallet] = useState({
         "fullName": "",
         "phone_number": "",
         "email": "",
         "ewallet_id": "",
         "rapydId": "",
         "balance": ""
-    });
+    })
+    const [clickedWallet, setclickedWallet] = useContext(Context)
 
 
-    // For Transaction
-    // const openModal = () => {
-    //     setShowModal(prev => !prev);
-    // };
 
     // For Money Transfer
     const openTheModal = () => {
@@ -36,13 +33,10 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
     }
 
 
-
-
     //// Clicked Wallet 
-
     const transfer = () => {
         openTheModal()
-        setclickedWallet({
+        setclickedTWallet({
             "fullName": fullName,
             "phone_number": phone_number,
             "email": email,
@@ -55,17 +49,37 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
 
 
 
-
-    // To Show Transactions Model and get the clicked ewallet_id
+    // To Show Transactions and get the clicked ewallet_id
     const showTransaction = () => {
+        setIsClicked(true)
         // send clickedWallet Details to Transaction Card or to List Transactions Backend
-                console.log(ewallet_id)
+        setclickedWallet({
+            "fullName": fullName,
+            "phone_number": phone_number,
+            "email": email,
+            "ewallet_id": ewallet_id,
+            "rapydId": rapydId,
+            "balance": balance
+        })
+        console.log("\\", clickedWallet)
+    }
+
+    const closeTransaction = () => {
+        setIsClicked(false)
+        setclickedWallet({
+            "fullName": "",
+            "phone_number": "",
+            "email": "",
+            "ewallet_id": "",
+            "rapydId": "",
+            "balance": ""
+        })
     }
 
 
-
     return (
-        <WalletsCard>
+
+        <WalletsCard >
             <ProductsCardInfo>
                 <ProductsCardPlan>{fullName}</ProductsCardPlan>
                 <ProductsCardFeatures style={{ marginTop: "5px", marginBottom: "20px" }}>
@@ -77,18 +91,22 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
 
                 <Button style={{ marginBottom: "12PX" }} primary onClick={transfer}>
                     Send Money</Button>
-                <TransferModal clickedWallet={clickedWallet} ewallet_id={ewallet_id} rapydId={rapydId} showModal={show} setShowModal={set}
+                <TransferModal clickedTWallet={clickedTWallet} ewallet_id={ewallet_id} rapydId={rapydId} showModal={show} setShowModal={set}
 
                 />
-                <Scroll spy={true} smooth={true} to="TransactionsComponent">
+                {isClicked === true ? (<Button style={{ backgroundColor: "rgb(238, 75, 43)" }} primary onClick={closeTransaction}>
+                    Close Transactions</Button>) : (<Scroll spy={true} smooth={true} to="TransactionsComponent">
+                        <Button primary onClick={showTransaction}>
+                            View Transactions</Button>
+                    </Scroll>)}
 
-                <Button primary onClick={showTransaction}>
-                    View Transactions</Button>
-                </Scroll>
 
-                    {/* TransactionsComponent */}
             </ProductsCardInfo>
         </WalletsCard>
+
+
+
+
     )
 }
 

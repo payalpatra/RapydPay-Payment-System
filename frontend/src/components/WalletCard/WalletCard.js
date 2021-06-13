@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { IconContext } from 'react-icons/lib';
 import {
     WalletsSection,
+    ProductsHeading,
     WalletsWrapper,
     WalletsContainer
 } from '../ProductsCard/ProductCard.elements.js';
@@ -27,41 +28,48 @@ function WalletCard() {
     }, []);
 
 
-
-
     return (
-        <div id="walletsComponent" style={{ marginBottom: "50px" }}>
-            <IconContext.Provider value={{ color: '#a9b3c1', size: 64 }}>
-                <WalletsSection>
-                    <WalletsWrapper>
-                        <WalletsContainer>
-                            {
-                                wallets.map(wallet =>
-                                (
-                                    <WalletInfo
-                                        key={wallet._id}
-                                        fullName={wallet.fullName}
-                                        phone_number={wallet.phone_number}
-                                        email={wallet.email}
-                                        rapydId={wallet.rapydId}
-                                        balance={wallet.balance}
-                                        ewallet_id={wallet.ewallet_id}
-
-                                    />
-                                )
-
-                                )
-
-                            }
-
-                        </WalletsContainer>
 
 
-                    </WalletsWrapper>
-                </WalletsSection>
-            </IconContext.Provider>
+            <div id="walletsComponent" style={{ marginBottom: "50px"}}>
+                <IconContext.Provider value={{ color: '#a9b3c1', size: 64 }}>
+                    <WalletsSection>
+                        <WalletsWrapper style={{ marginTop: "100px", flexDirection: "column" }}>
+                        
+                        <ProductsHeading style={{ marginBottom: "50px",color:"#101010" }}>Wallets</ProductsHeading>
+                            <WalletsContainer>
+                                {
+                                    wallets.map(wallet =>
+                                    (
+                                        <WalletInfo
+                                            key={wallet._id}
+                                            fullName={wallet.fullName}
+                                            phone_number={wallet.phone_number}
+                                            email={wallet.email}
+                                            rapydId={wallet.rapydId}
+                                            balance={wallet.balance}
+                                            ewallet_id={wallet.ewallet_id}
 
-        </div>
+                                        />
+
+
+                                    )
+
+                                    )
+
+                                }
+
+                            </WalletsContainer>
+
+
+                        </WalletsWrapper>
+                    </WalletsSection>
+                </IconContext.Provider>
+
+            </div>
+
+
+     
     )
 }
 

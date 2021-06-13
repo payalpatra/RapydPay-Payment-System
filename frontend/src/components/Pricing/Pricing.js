@@ -29,21 +29,21 @@ function Pricing() {
                   <GiRock />
                 </PricingCardIcon>
                 <PricingCardPlan>Create Wallet</PricingCardPlan>
-                <PricingCardFeatures>
-                  <PricingCardFeature>Some Content</PricingCardFeature>
+                <PricingCardFeatures style={{ justifyContent: "center", alignItems: "center" }} >
+                  <PricingCardFeature>RapydPay makes online payments easy and fast.Create your wallet and transfer money to anybody within seconds.</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Learn More</Button>
               </PricingCardInfo>
             </PricingCard>
             <PricingCard to="/wallet">
-              <PricingCardInfo>
+              <PricingCardInfo >
                 <PricingCardIcon>
                   <GiCrystalBars />
                 </PricingCardIcon>
-                <PricingCardPlan>Wallet Transfer</PricingCardPlan>
+                <PricingCardPlan>Money Transfer</PricingCardPlan>
 
-                <PricingCardFeatures>
-                  <PricingCardFeature>Some Content</PricingCardFeature>
+                <PricingCardFeatures style={{ justifyContent: "center", alignItems: "center" }} >
+                  <PricingCardFeature >The RapydPay global payments network supports wallet services that includes transfer, accessing transactions.</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Learn More</Button>
               </PricingCardInfo>
@@ -54,8 +54,8 @@ function Pricing() {
                   <GiCutDiamond />
                 </PricingCardIcon>
                 <PricingCardPlan>Shop and Checkout</PricingCardPlan>
-                <PricingCardFeatures>
-                  <PricingCardFeature>Some Content</PricingCardFeature>
+                <PricingCardFeatures style={{ justifyContent: "center", alignItems: "center" }} >
+                  <PricingCardFeature>Now you can shop for products and pay without using cash and get the fastest and easiest way of local payment experience.</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Learn More</Button>
               </PricingCardInfo>

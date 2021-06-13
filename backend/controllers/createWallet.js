@@ -39,6 +39,9 @@ module.exports = function (req, res) {
         let ewallet_id = response.data.id;
         console.log(ewallet_id)
 
+        // Get the User Phone Number 
+        const userPhoneNumber = ""
+
         // Saving The Wallet 
         const newWallet = new Wallet({
             fullName: first_name + " " + last_name,

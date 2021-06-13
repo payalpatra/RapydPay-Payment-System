@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import { Context } from "../../Store";
 import { IconContext } from 'react-icons/lib';
 import {
-    WalletsSection,
+    TransactionsSection,
     WalletsWrapper,
+    ProductsHeading,
     TransactionsContainer
 } from '../ProductsCard/ProductCard.elements.js'
 import TransactionInfo from "../TransactionCard/TransactionInfo"
 
 function TransactionCard() {
+
+    const [clickedWallet, setclickedWallet] = useContext(Context)
+
     const [Transactions, setTransactions] = useState([]);
 
     // listTransactions
-
     const fetchData = () => {
         return fetch("/listTransactions")
             .then((response) => response.json())
@@ -24,17 +28,21 @@ function TransactionCard() {
     }, []);
 
 
-    let sortedTransactions = Transactions.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-    console.log(sortedTransactions)
+
     return (
         <div id="TransactionsComponent" style={{ marginBottom: "50px" }}>
             <IconContext.Provider value={{ color: '#a9b3c1', size: 64 }}>
-                <WalletsSection>
-                    <WalletsWrapper>
+                <TransactionsSection>
+                    <WalletsWrapper style={{ marginTop: "100px", flexDirection: "column" }}>
+                        {clickedWallet.ewallet_id &&
+
+                            <ProductsHeading style={{ marginBottom: "50px",color:"#101010" }}>Transactions</ProductsHeading>
+                        }
+
                         <TransactionsContainer>
                             {
 
-                                sortedTransactions.map(Transaction =>
+                                Transactions.map(Transaction =>
                                 (
 
                                     <TransactionInfo
@@ -59,7 +67,7 @@ function TransactionCard() {
 
 
                     </WalletsWrapper>
-                </WalletsSection>
+                </TransactionsSection>
             </IconContext.Provider>
 
         </div>

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "../../globalStyles";
+import { Link } from "react-router-dom"
 
 import {
     ProductsCard,
@@ -12,14 +13,14 @@ import {
 
 
 function ProductsInfo({ imgSrc, title, price }) {
+    const [isClicked, setIsClicked] = useState(false);
+
 
     const [product, setProduct] = useState({
         "amount": price,
         "country": "US",
         "currency": "USD",
     });
-
-
 
 
     const getProduct = async () => {
@@ -48,11 +49,11 @@ function ProductsInfo({ imgSrc, title, price }) {
 
     // Sending Product Details to get Rapid Token 
     const sendProduct = () => {
-        getProduct()
+        // getProduct()
+        setIsClicked(true);
 
     }
 
- 
 
 
 
@@ -71,9 +72,13 @@ function ProductsInfo({ imgSrc, title, price }) {
                 <ProductsCardFeatures>
                     <ProductsCardFeature>Price: ${price}</ProductsCardFeature>
                 </ProductsCardFeatures>
-
-                <Button primary onClick={sendProduct}>
-                    Buy Now</Button>
+                {isClicked === false ? (<Button primary onClick={sendProduct}>
+                    Buy Now</Button>) :
+                    (<Link to="/cart" style={{ backgroundColor: 'green' }} >
+                    <Button style={{ backgroundColor: 'green' }} >
+                        View Cart
+                    </Button>
+                    </Link>)}
             </ProductsCardInfo>
         </ProductsCard>
     )

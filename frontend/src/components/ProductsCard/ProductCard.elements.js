@@ -14,8 +14,18 @@ export const WalletsSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #ffff;
+  background: #fff;
 `;
+
+
+export const TransactionsSection = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+`;
+
 
 
 export const ProductsWrapper = styled.div`
@@ -106,7 +116,7 @@ max-width: 1200px;
 
 
 
-export const ProductsCard = styled(Link)`
+export const ProductsCard = styled.div`
   background: #242424;
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.2);
   width: 280px;
@@ -133,7 +143,7 @@ export const ProductsCard = styled(Link)`
 
 
 
-export const WalletsCard = styled(Link)`
+export const WalletsCard = styled.div`
   background: #242424;
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.2);
   width: 480px;
