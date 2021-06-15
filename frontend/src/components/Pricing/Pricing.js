@@ -28,19 +28,19 @@ function Pricing() {
                 <PricingCardIcon>
                   <GiRock />
                 </PricingCardIcon>
-                <PricingCardPlan>Create Wallet</PricingCardPlan>
+                <PricingCardPlan style= {{"fontSize":"21px"}} >Wallet & Transactions</PricingCardPlan>
                 <PricingCardFeatures style={{ justifyContent: "center", alignItems: "center" }} >
                   <PricingCardFeature>RapydPay makes online payments easy and fast.Create your wallet and transfer money to anybody within seconds.</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Learn More</Button>
               </PricingCardInfo>
             </PricingCard>
-            <PricingCard to="/wallet">
+            <PricingCard to="/customer">
               <PricingCardInfo >
                 <PricingCardIcon>
                   <GiCrystalBars />
                 </PricingCardIcon>
-                <PricingCardPlan>Money Transfer</PricingCardPlan>
+                <PricingCardPlan style= {{"fontSize":"21px"}}>Customer & Payments</PricingCardPlan>
 
                 <PricingCardFeatures style={{ justifyContent: "center", alignItems: "center" }} >
                   <PricingCardFeature >The RapydPay global payments network supports wallet services that includes transfer, accessing transactions.</PricingCardFeature>
@@ -53,7 +53,7 @@ function Pricing() {
                 <PricingCardIcon>
                   <GiCutDiamond />
                 </PricingCardIcon>
-                <PricingCardPlan>Shop and Checkout</PricingCardPlan>
+                <PricingCardPlan style= {{"fontSize":"22px"}} >Shop & Checkout</PricingCardPlan>
                 <PricingCardFeatures style={{ justifyContent: "center", alignItems: "center" }} >
                   <PricingCardFeature>Now you can shop for products and pay without using cash and get the fastest and easiest way of local payment experience.</PricingCardFeature>
                 </PricingCardFeatures>

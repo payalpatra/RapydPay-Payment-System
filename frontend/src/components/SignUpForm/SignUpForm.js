@@ -17,12 +17,15 @@ import {
 } from "./SignUp.elements.js";
 
 function SignUpForm() {
+  const [isClicked, setIsClicked] = useState(false);
+
   const [data, setData] = useState({
-    fullName: "",
+    name: "",
     email: "",
-    message: "",
+    password: "",
   });
 
+  // Handle Input Change
   const InputEvent = (event) => {
     const { name, value } = event.target;
     setData((preVal) => {
@@ -32,23 +35,16 @@ function SignUpForm() {
       };
     });
   };
-  // let id = faker.random.uuid();
-  const formSubmit = (e) => {
+
+  const PostData = () => {
+    console.log("User Login")
+  }
+
+
+  const RegisterUser = (e) => {
     e.preventDefault();
-    // const userdata = {
-    //   id: id,
-    //   fullName: data.fullName,
-    //   email: data.email,
-    //   message: data.message,
-    // };
-    // await axios
-    //   .post("/.netlify/functions/addData", userdata)
-    //   .then((response) => {
-    //     window.location.href = "/ThankYou";
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
+    PostData()
+
   };
 
   return (
@@ -57,14 +53,14 @@ function SignUpForm() {
         <FormWrap>
           <Icon to="/">RapydPay </Icon>
           <FormContent>
-            <Form post action onSubmit={formSubmit}>
+            <Form post >
               <FormH1>Register</FormH1>
               <FormLabel htmlFor="for">Full Name</FormLabel>
               <FormInput
                 type="text"
                 id="Input1"
-                name="fullName"
-                value={data.fullName}
+                name="name"
+                value={data.name}
                 onChange={InputEvent}
                 placeholder="Enter Your Name"
                 required
@@ -80,7 +76,8 @@ function SignUpForm() {
                 placeholder="Enter Your Email"
                 required
               />
-              <FormLabel htmlFor="for">Password</FormLabel>
+
+              <FormLabel autoComplete="off" htmlFor="for">Password</FormLabel>
               <FormInput
                 type="text"
                 id="Input3"
@@ -90,14 +87,23 @@ function SignUpForm() {
                 placeholder="Enter Your Password"
                 required
               />
-              <FormButton type="submit">Register</FormButton>
-              <FormH1 style={{ marginTop: "15px" }} >Already Have an account ?
-              <FormButton2>
-                  <Link style={{ color:"#fff",textDecoration:"none" }}exact to="/login"  >
+              <FormButton type="submit" onClick={RegisterUser}>Register</FormButton>
+              {isClicked ? (<FormH1 style={{ marginTop: "15px" }} >Already Have an account ?
+                <FormButton2>
+                  <Link style={{ color: "#fff", textDecoration: "none" }} exact to="/login"  >
                     Login
-              </Link>
+                  </Link>
                 </FormButton2>
-              </FormH1>
+              </FormH1>) :
+                (<FormH1 style={{ marginTop: "15px" }} >You are Logged In !
+                  <FormButton2>
+                    <Link style={{ color: "#fff", textDecoration: "none" }} exact to="/services"  >
+                      Explore Services
+                    </Link>
+                  </FormButton2>
+                </FormH1>
+                )}
+
             </Form>
           </FormContent>
         </FormWrap>

@@ -79,9 +79,12 @@ module.exports = function (req, res) {
             console.error(error);
         }
 
+        return res
+
+    }
 
 
-    });
+    );
 
     res.send("Transfer Completed ")
 }

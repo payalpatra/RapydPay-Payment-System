@@ -56,7 +56,7 @@ function CreateWalletForm() {
 
         } else {
 
-            const response = fetch("ewallet", {
+            const response = fetch("/api/ewallet", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -89,7 +89,7 @@ function CreateWalletForm() {
                 "balance": balance
             })
 
-   
+
             console.log("Wallet Created")
             console.log(response)
         }
@@ -167,4 +167,4 @@ function CreateWalletForm() {
     )
 }
 
-export default CreateWalletForm
+export default CreateWalletForm;

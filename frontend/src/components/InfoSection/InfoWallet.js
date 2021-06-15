@@ -15,6 +15,7 @@ function InfoWallet({
     lightText,
     headline,
     buttonLabel,
+    buttonLabel2
 
 }) {
     const [showModal, setShowModal] = useState(false);
@@ -37,7 +38,7 @@ function InfoWallet({
                         <TextWrapper >
                             <Heading style={{ marginTop: "30px" }} lightText={lightText}>{headline}</Heading>
                             {buttonLabel ? (<>
-                                <Button onClick={openForm} big style={{ marginTop: "30px" }} fontBig primary={primary}>
+                                <Button onClick={openForm} big style={{ marginTop: "30px", marginRight :"11px" }} fontBig primary={primary}>
                                     {buttonLabel}
                                 </Button>
                                 <Modal showModal={showModal} setShowModal={setShowModal} />
@@ -46,6 +47,8 @@ function InfoWallet({
                                 :
                                 (<></>)
                             }
+                    
+
                         </TextWrapper>
                     </InfoColumn>
 

@@ -5,6 +5,7 @@ const getRequestData = require("../functions/requestData");
 const getHelpers = require("../functions/helpers");
 
 
+
 const helpers = getHelpers();
 
 module.exports = function (req, res) {
@@ -52,16 +53,28 @@ module.exports = function (req, res) {
         let response = JSON.parse(res.body);
         let checkoutUrl = response.data.redirect_url;
 
-        // CheckoutUser
-        const checkoutUser = {
-            name,
-            address,
-            phone,
-            amount,
-            checkoutUrl,
-        };
-        console.log(checkoutUser);
+
+        if (!err) {
+            // CheckoutUser
+            const checkoutUser = {
+                name,
+                address,
+                phone,
+                amount,
+                checkoutUrl,
+            };
+            console.log(checkoutUser);
+            return res
+        } else if (err) {
+            console.log("CHECKOUT FAIL")
+            return res.statusCode(200)
+        } else {
+
+            return res.redirect(checkoutUrl)
+        }
+
     })
 
+    return res
 
 };

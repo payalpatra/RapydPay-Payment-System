@@ -17,7 +17,7 @@ function TransactionCard() {
 
     // listTransactions
     const fetchData = () => {
-        return fetch("/listTransactions")
+        return fetch("/api/listTransactions")
             .then((response) => response.json())
             .then((data) => setTransactions(data));
     }
@@ -34,10 +34,13 @@ function TransactionCard() {
             <IconContext.Provider value={{ color: '#a9b3c1', size: 64 }}>
                 <TransactionsSection>
                     <WalletsWrapper style={{ marginTop: "100px", flexDirection: "column" }}>
-                        {clickedWallet.ewallet_id &&
+                        {clickedWallet.ewallet_id && Transactions.length === 0 && (<ProductsHeading style={{ marginBottom: "50px", color: "#101010" }}>No Transactions Found !! </ProductsHeading>)}
 
-                            <ProductsHeading style={{ marginBottom: "50px",color:"#101010" }}>Transactions</ProductsHeading>
+                        {clickedWallet.ewallet_id && Transactions.length >= 1 &&
+
+                            <ProductsHeading style={{ marginBottom: "50px", color: "#101010" }}>Transactions</ProductsHeading>
                         }
+
 
                         <TransactionsContainer>
                             {

@@ -25,6 +25,7 @@ function ProductCard() {
                                         imgSrc={val.imgSrc}
                                         title={val.title}
                                         price={val.price}
+                                        url = {val.url}
 
                                     />
                                 )

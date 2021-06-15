@@ -62,7 +62,13 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-function TransferModel({ showModal, setShowModal, clickedTWallet }) {
+
+
+
+
+function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
+
+
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
 
@@ -97,8 +103,9 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
         return () => document.removeEventListener("keydown", keyPress);
     }, [keyPress]);
 
-    /// Declaring State for Transaction Model
 
+
+    /// Declaring State for Payment Model
     const [transferDetails, setTransferDetails] = useState({
         source_ewallet: "",
         amount: "",
@@ -116,10 +123,10 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
     };
 
 
-    // Posting Transfer Details
+    // Posting Payment Details
     const PostData = async () => {
         let Data = {
-            source_ewallet: clickedTWallet.ewallet_id,
+            source_ewallet: clickedTcustomer.ewallet_id,
             amount: transferDetails.amount.toString(),
             destination_ewallet: "ewallet_" + transferDetails.destination_ewallet,
         };
@@ -161,8 +168,9 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
         e.preventDefault();
         PostData();
 
-        console.log("I am the clicked wallet ", clickedTWallet);
+        console.log("I am the clicked wallet ", clickedTcustomer);
     };
+
 
 
     return (
@@ -180,7 +188,7 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
                                             type="text"
                                             id="Input1"
                                             name="source_ewallet"
-                                            value={clickedTWallet.ewallet_id}
+                                            value={clickedTcustomer.ewallet_id}
                                             onChange={InputEvent}
                                             placeholder="Enter Your First Name"
                                             required
@@ -231,7 +239,7 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
                 </Background>
             ) : null}
         </>
-    );
+    )
 }
 
-export default TransferModel;
+export default PaymentModal
