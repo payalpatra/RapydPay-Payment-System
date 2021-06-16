@@ -18,6 +18,7 @@ function CreateWalletForm() {
 
     let ewallet_reference_id = Math.floor(Math.random() * 1000000000) + 1 + Math.floor(Math.random() * 1000000000) + 1
     let balance = 0;
+
     const [wallet, setWallet] = useState({
         "first_name": "",
         "last_name": "",
@@ -101,6 +102,10 @@ function CreateWalletForm() {
     const createWallet = (e) => {
         e.preventDefault();
         getWalletDetails()
+        setInterval(function () {
+            setSuccess(false);
+            setFailure(false);
+        }, 2000);
 
     }
 

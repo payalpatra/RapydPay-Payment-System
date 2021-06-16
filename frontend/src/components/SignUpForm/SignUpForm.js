@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-// import axios from "axios";
-// import faker from "faker";
 
 import {
   Container,
@@ -13,7 +10,6 @@ import {
   FormLabel,
   FormInput,
   FormButton,
-  FormButton2,
 } from "./SignUp.elements.js";
 
 function SignUpForm() {
@@ -22,7 +18,7 @@ function SignUpForm() {
   const [data, setData] = useState({
     name: "",
     email: "",
-    password: "",
+    message: "",
   });
 
   // Handle Input Change
@@ -37,11 +33,12 @@ function SignUpForm() {
   };
 
   const PostData = () => {
-    console.log("User Login")
+
+    setIsClicked(true)
   }
 
 
-  const RegisterUser = (e) => {
+  const sendMessage = (e) => {
     e.preventDefault();
     PostData()
 
@@ -54,7 +51,7 @@ function SignUpForm() {
           <Icon to="/">RapydPay </Icon>
           <FormContent>
             <Form post >
-              <FormH1>Register</FormH1>
+              <FormH1>Feedback</FormH1>
               <FormLabel htmlFor="for">Full Name</FormLabel>
               <FormInput
                 type="text"
@@ -77,32 +74,18 @@ function SignUpForm() {
                 required
               />
 
-              <FormLabel autoComplete="off" htmlFor="for">Password</FormLabel>
+              <FormLabel autoComplete="off" htmlFor="for">Message</FormLabel>
               <FormInput
                 type="text"
                 id="Input3"
-                name="password"
-                value={data.password}
+                name="message"
+                value={data.message}
                 onChange={InputEvent}
-                placeholder="Enter Your Password"
+                placeholder="Enter Your message"
                 required
               />
-              <FormButton type="submit" onClick={RegisterUser}>Register</FormButton>
-              {isClicked ? (<FormH1 style={{ marginTop: "15px" }} >Already Have an account ?
-                <FormButton2>
-                  <Link style={{ color: "#fff", textDecoration: "none" }} exact to="/login"  >
-                    Login
-                  </Link>
-                </FormButton2>
-              </FormH1>) :
-                (<FormH1 style={{ marginTop: "15px" }} >You are Logged In !
-                  <FormButton2>
-                    <Link style={{ color: "#fff", textDecoration: "none" }} exact to="/services"  >
-                      Explore Services
-                    </Link>
-                  </FormButton2>
-                </FormH1>
-                )}
+              {isClicked === true && <p>Thank your Feedback</p>}
+              <FormButton type="submit" onClick={sendMessage}>Send Feedback</FormButton>
 
             </Form>
           </FormContent>

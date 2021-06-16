@@ -17,11 +17,13 @@ function CustomerCard() {
         return fetch("/api/allCustomers")
             .then((response) => response.json())
             .then((data) => setCustomers(data));
+
     }
-    // fetchData()
+
 
     useEffect(() => {
         fetchData();
+      
     }, []);
 
 

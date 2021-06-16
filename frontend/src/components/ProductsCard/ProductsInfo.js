@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "../../globalStyles";
-import { Link } from "react-router-dom"
+
 
 import {
     ProductsCard,
@@ -28,7 +28,7 @@ function ProductsInfo({ imgSrc, title, price, url }) {
                 <ProductsCardFeatures>
                     <ProductsCardFeature>Price: ${price}</ProductsCardFeature>
                 </ProductsCardFeatures>
-                <a href={url}>
+                <a href={url}  target="_blank" rel="noreferrer noopener">
                     <Button>Buy Now </Button>
 
                 </a>

@@ -62,13 +62,7 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-
-
-
-
 function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
-
-
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
 
@@ -103,18 +97,16 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
         return () => document.removeEventListener("keydown", keyPress);
     }, [keyPress]);
 
-
-
     /// Declaring State for Payment Model
-    const [transferDetails, setTransferDetails] = useState({
-        source_ewallet: "",
+    const [PaymentDetails, setPaymentDetails] = useState({
+        customer: "",
         amount: "",
-        destination_ewallet: "",
+        ewallet: "",
     });
 
     const InputEvent = (event) => {
         const { name, value } = event.target;
-        setTransferDetails((preVal) => {
+        setPaymentDetails((preVal) => {
             return {
                 ...preVal,
                 [name]: value,
@@ -122,56 +114,62 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
         });
     };
 
-
     // Posting Payment Details
     const PostData = async () => {
         let Data = {
-            source_ewallet: clickedTcustomer.ewallet_id,
-            amount: transferDetails.amount.toString(),
-            destination_ewallet: "ewallet_" + transferDetails.destination_ewallet,
+            customer: clickedTcustomer.customerId,
+            amount: PaymentDetails.amount.toString(),
+            ewallet: PaymentDetails.ewallet,
         };
+        console.log(Data);
 
-        if (!Data.amount || !Data.destination_ewallet) {
+        if (!Data.amount || !Data.ewallet) {
             setFailure(true);
-
         } else {
-
-            // Transfering Money Between Walllets !!
-            const response = await fetch("/api/transfer", {
+            // Payments By Customer To e wallets
+            const response = await fetch("/api/createPayment", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify(Data)
+                body: JSON.stringify(Data),
             });
 
+
+            // Form Validations 
             if (failure === true) {
                 setFailure(false);
                 setSuccess(true);
             } else {
                 setSuccess(true);
             }
+
+
+
             /// Clearing the form Data
-            setTransferDetails({
-                source_ewallet: "",
+            setPaymentDetails({
+                customer: "",
                 amount: "",
-                destination_ewallet: "",
+                ewallet: "",
             });
 
-            console.log(response);
-            console.log("Transfer Succesfful");
+
+
+            console.log(response)
+            console.log("Payment Succesfful");
         }
     };
 
-    const sendMoney = (e) => {
-        // Post Request to transfer
+    const sendPayment = (e) => {
+        // Post Request to Payment
         e.preventDefault();
         PostData();
+        setInterval(function () {
+            setSuccess(false);
+            setFailure(false);
+        }, 2000);
 
-        console.log("I am the clicked wallet ", clickedTcustomer);
     };
-
-
 
     return (
         <>
@@ -183,14 +181,14 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
                             <FormWrap>
                                 <FormContent>
                                     <Form4 autoComplete="off">
-                                        <FormLabel htmlFor="for">From Wallet ID</FormLabel>
+                                        <FormLabel htmlFor="for">From Customer ID</FormLabel>
                                         <FormInput
                                             type="text"
                                             id="Input1"
-                                            name="source_ewallet"
-                                            value={clickedTcustomer.ewallet_id}
+                                            name="customer"
+                                            value={clickedTcustomer.customerId}
                                             onChange={InputEvent}
-                                            placeholder="Enter Your First Name"
+                                            placeholder="Enter Your CUSTOMER ID"
                                             required
                                         />
 
@@ -200,19 +198,19 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
                                             autocomplete="off"
                                             id="Input2"
                                             name="amount"
-                                            value={transferDetails.amount}
+                                            value={PaymentDetails.amount}
                                             onChange={InputEvent}
                                             placeholder="Enter Amount"
                                             required
                                         />
 
-                                        <FormLabel htmlFor="for">To</FormLabel>
+                                        <FormLabel htmlFor="for">To wallet ID</FormLabel>
                                         <FormInput
                                             type="text"
                                             id="Input3"
                                             autoComplete="off"
-                                            name="destination_ewallet"
-                                            value={transferDetails.destination_ewallet}
+                                            name="ewallet"
+                                            value={PaymentDetails.ewallet}
                                             onChange={InputEvent}
                                             placeholder=""
                                             required
@@ -226,7 +224,7 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
                                                 Please Fill up Valid credentials
                                             </p>
                                         )}
-                                        <FormButton onClick={sendMoney}>Send</FormButton>
+                                        <FormButton onClick={sendPayment}>Send</FormButton>
                                     </Form4>
                                 </FormContent>
                             </FormWrap>
@@ -239,7 +237,7 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
                 </Background>
             ) : null}
         </>
-    )
+    );
 }
 
-export default PaymentModal
+export default PaymentModal;

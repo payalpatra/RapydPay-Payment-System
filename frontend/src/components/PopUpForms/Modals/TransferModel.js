@@ -160,7 +160,13 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
         // Post Request to transfer
         e.preventDefault();
         PostData();
+        
+        // Vanishing Form Message
+        setInterval(function () {
+            setSuccess(false);
+            setFailure(false);
 
+        }, 2000);
         console.log("I am the clicked wallet ", clickedTWallet);
     };
 

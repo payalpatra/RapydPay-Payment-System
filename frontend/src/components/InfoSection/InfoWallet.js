@@ -8,6 +8,8 @@ import {
 } from './InfoSection.elements';
 
 import Modal from "../PopUpForms/Modals/CreateWalletModel";
+import CreateCustomerModel from '../PopUpForms/Modals/CreateCustomerModel';
+
 
 function InfoWallet({
     primary,
@@ -38,7 +40,7 @@ function InfoWallet({
                         <TextWrapper >
                             <Heading style={{ marginTop: "30px" }} lightText={lightText}>{headline}</Heading>
                             {buttonLabel ? (<>
-                                <Button onClick={openForm} big style={{ marginTop: "30px", marginRight :"11px" }} fontBig primary={primary}>
+                                <Button onClick={openForm} big style={{ marginTop: "30px", marginRight: "11px" }} fontBig primary={primary}>
                                     {buttonLabel}
                                 </Button>
                                 <Modal showModal={showModal} setShowModal={setShowModal} />
@@ -47,7 +49,18 @@ function InfoWallet({
                                 :
                                 (<></>)
                             }
-                    
+                            {buttonLabel2 ? (<>
+                                <Button onClick={openForm} big style={{ marginTop: "30px", marginRight: "11px" }} fontBig primary={primary}>
+                                    {buttonLabel2}
+                                </Button>
+                                <CreateCustomerModel showModal={showModal} setShowModal={setShowModal} />
+                            </>
+                            )
+                                :
+                                (<></>)
+                            }
+
+
 
                         </TextWrapper>
                     </InfoColumn>

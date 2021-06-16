@@ -61,7 +61,8 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
             "rapydId": rapydId,
             "balance": balance
         })
-        console.log("\\", clickedWallet)
+        console.log("I am the clicked wallet ", clickedWallet);
+
     }
 
     const closeTransaction = () => {

@@ -47,18 +47,27 @@ function CustomerInfo({ name, email, customerId, ewallet_id }) {
 
 
 
-    // To Show Transactions and get the clicked ewallet_id
+    // To Show Payments and get customer id
     const showPayments = () => {
         setIsClicked(true)
         // send clickedWallet Details to Transaction Card or to List Transactions Backend
         setclickedWallet({
             "fullName": "",
             "phone_number": "",
-            "email": email,
-            "ewallet_id": ewallet_id,
-            "customerId": customerId
+            "email": "",
+            "ewallet_id": "",
+            "rapydId": "",
+            "balance": "",
+            "customer": {
+                "name": name,
+                "email": email,
+                "customerId": customerId,
+                "ewallet_id": ewallet_id,
+            }
         })
-        console.log("\\", clickedWallet)
+
+        console.log("I am the clicked wallet ", clickedWallet);
+       
     }
 
     const closePayments = () => {
@@ -68,7 +77,14 @@ function CustomerInfo({ name, email, customerId, ewallet_id }) {
             "phone_number": "",
             "email": "",
             "ewallet_id": "",
-            "customerId": ""
+            "rapydId": "",
+            "balance": "",
+            "customer": {
+                "name": "",
+                "email": "",
+                "customerId": "",
+                "ewallet_id": "",
+            }
         })
     }
 
@@ -78,7 +94,8 @@ function CustomerInfo({ name, email, customerId, ewallet_id }) {
             <ProductsCardInfo>
                 <ProductsCardPlan>{name}</ProductsCardPlan>
                 <ProductsCardFeatures style={{ marginTop: "5px", marginBottom: "20px" }}>
-                    <ProductsCardFeature style={{ fontSize: "10px", color: "#ffff", marginBottom: "20px" }}>Associated Wallet: {ewallet_id.slice(8)}</ProductsCardFeature>
+                    <ProductsCardFeature style={{ fontSize: "13px", color: "#ffff", marginBottom: "20px" }}> {ewallet_id}</ProductsCardFeature>
+                    <ProductsCardFeature>{email}</ProductsCardFeature>
                     <ProductsCardFeature>{customerId}</ProductsCardFeature>
 
                 </ProductsCardFeatures>

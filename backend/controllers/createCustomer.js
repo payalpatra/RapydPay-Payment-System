@@ -3,11 +3,12 @@ const CryptoJS = require("crypto-js");
 const getHeaders = require("../functions/headers");
 const getRequestData = require("../functions/requestData");
 const getHelpers = require("../functions/helpers");
+const Customer = require("../models/Customer")
 
 const helpers = getHelpers();
 
 module.exports = function (req, res) {
-    let { name, email, ewallet, payment_method } = req.body;
+    let { name, email, ewallet, number, expiration_month, expiration_year, cvv } = req.body;
     let body = {
         name: name,
         email: email,
@@ -15,10 +16,10 @@ module.exports = function (req, res) {
         payment_method: {
             type: "us_visa_card",
             fields: {
-                number: payment_method.fields.number,
-                expiration_month: payment_method.fields.expiration_month,
-                expiration_year: payment_method.fields.expiration_year,
-                cvv: payment_method.fields.cvv,
+                number: number,
+                expiration_month: expiration_month,
+                expiration_year: expiration_year,
+                cvv: cvv,
             },
         },
     };
@@ -75,42 +76,25 @@ module.exports = function (req, res) {
     res.send("Customer Created");
 };
 
-/// Customer Of Gopinath Patra with ewallet_8a695b403979fb788f59acf134b7e30b ---------- \\\
 
 
-// {
-//     "name": "Rashmita Rani Patra",
-//     "ewallet": "ewallet_8a695b403979fb788f59acf134b7e30b",
-// "email": "johndoe@rapyd.net",
-//     "payment_method": {
-//         "type": "us_visa_card",
-//         "fields": {
-//             "number": "4111111111111111",
-//             "expiration_month": "10",
-//             "expiration_year": "23",
-//             "cvv": "123"
-//         }
-//     }
-// }
-
-/// Customer Creation Response (For Gopinath Patra's Customer)
-// Customer Details -- > Of Rashmita Rani Patra
-
-// data = {
-//     id: 'cus_5ef732e26038bf7d4bf6dfa8db7b1db4',
-//     delinquent: false,
-//     discount: null,
+// const RashmitaRaniPatra = {
 //     name: 'Rashmita Rani Patra',
+//     email: 'rashmitapatra@gmail.com',
+//     customerId: 'cus_5ef732e26038bf7d4bf6dfa8db7b1db4',
 //     default_payment_method: 'card_88a9d4e1619cc7ef4f386ad785ac259d',
-//     description: '',
-//     email: '',
-//     phone_number: '',
-//     invoice_prefix: '',
-//     addresses: [],
-//     payment_methods: {
-//         data: [Array],
-//         has_more: false,
-//         total_count: 1,
-//         url: '/v1/customers/cus_5ef732e26038bf7d4bf6dfa8db7b1db4/payment_methods'
-//     }
+//     ewallet_id: 'ewallet_8a695b403979fb788f59acf134b7e30b'
+
 // }
+
+
+// const Sameer Saikh = {
+//     _id: 60c8cb8df4915439184f4709,
+//     name: 'Sameer Saikh',
+//     email: 'sameersaikh@gmail.com',
+//     customerId: 'cus_1cc1d9ab23da1ab7282dd25b9b354afd',
+//     default_payment_method: 'card_e1830d352535afff8263222219a96864',
+//     ewallet_id: 'ewallet_16ed8aef3d84d50ca86a2cc7fd576dba'
+
+// }
+

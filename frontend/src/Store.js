@@ -7,7 +7,12 @@ const initialState = {
     "ewallet_id": "",
     "rapydId": "",
     "balance": "",
-    "customerId":""
+    "customer":{
+        "name":"",
+        "email": "",
+        "customerId": "",
+        "ewallet_id": "",
+    }
 };
 
 export const Context = React.createContext();

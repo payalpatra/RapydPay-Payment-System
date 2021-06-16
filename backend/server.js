@@ -7,10 +7,10 @@ const cors = require("cors");
 const createWallet = require("./controllers/createWallet");
 const transfer = require("./controllers/transfer");
 const confirmation = require("./controllers/confirmation");
-const walletDetails = require("./controllers/walletDetails");
 const listTransactions = require("./controllers/listTransactions");
-const checkout = require("./controllers/checkout");
+const listPayments = require("./controllers/listPayments");
 const allWallets = require("./controllers/allWallets");
+const allCustomers = require("./controllers/allCustomers");
 const createCustomer = require("./controllers/createCustomer");
 const createPayment = require("./controllers/createPayment");
 const conectDB = require("./config/db");
@@ -41,21 +41,19 @@ app.post("/api/createCustomer", createCustomer);
 app.post("/api/createPayment", createPayment);
 
 
-// ------------------------ Retrieve Wallet Contact----------------------- \\
-
-app.post("/walletDetails", walletDetails);
-
-// ------------------ List Transactions of a particular e-wallet ---------------- \\
+// ------------------ List Transactions  ---------------- \\
 app.get("/api/listTransactions", listTransactions);
 
-// --------------------------- Checkout --------------------------- \\
-app.post("/checkout", checkout);
+// ------------------ List Payments ---------------- \\
+app.get("/api/listPayments", listPayments);
+
+
 
 // --------------------------- List Of Created Wallets --------------------------- \\
 app.get("/api/allWallets", allWallets);
 
 // --------------------------- List Of Created Customers --------------------------- \\
-// app.get("/api/allCustomers", allCustomers);
+app.get("/api/allCustomers", allCustomers);
 
 app.get("/", (req, res) => {
   res.send("Hey There !! Welcome to the server");
