@@ -13,6 +13,9 @@ const allWallets = require("./controllers/allWallets");
 const allCustomers = require("./controllers/allCustomers");
 const createCustomer = require("./controllers/createCustomer");
 const createPayment = require("./controllers/createPayment");
+const feedback = require("./controllers/feedback");
+
+// MongoDB Cloud Connection
 const conectDB = require("./config/db");
 
 // Initializing APP
@@ -54,6 +57,10 @@ app.get("/api/allWallets", allWallets);
 
 // --------------------------- List Of Created Customers --------------------------- \\
 app.get("/api/allCustomers", allCustomers);
+
+
+// --------------------------- Save Feedback ---------------------------- \\
+app.post("/api/feedback", feedback);
 
 app.get("/", (req, res) => {
   res.send("Hey There !! Welcome to the server");

@@ -65,6 +65,7 @@ const CloseModalButton = styled(MdClose)`
 function TransferModel({ showModal, setShowModal, clickedTWallet }) {
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
+    const [Error, setError] = useState(false);
 
     const modalRef = useRef();
 
@@ -121,7 +122,7 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
         let Data = {
             source_ewallet: clickedTWallet.ewallet_id,
             amount: transferDetails.amount.toString(),
-            destination_ewallet: "ewallet_" + transferDetails.destination_ewallet,
+            destination_ewallet: transferDetails.destination_ewallet,
         };
 
         if (!Data.amount || !Data.destination_ewallet) {
@@ -138,12 +139,25 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
                 body: JSON.stringify(Data)
             });
 
+            /// Response Error Handling or Inproper Data
+            if (response.status >= 200 && response.status <= 299) {
+                setSuccess(true);
+            } else {
+                setError(true)
+
+            }
+
+
             if (failure === true) {
                 setFailure(false);
                 setSuccess(true);
             } else {
                 setSuccess(true);
             }
+
+
+
+
             /// Clearing the form Data
             setTransferDetails({
                 source_ewallet: "",
@@ -160,7 +174,7 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
         // Post Request to transfer
         e.preventDefault();
         PostData();
-        
+
         // Vanishing Form Message
         setInterval(function () {
             setSuccess(false);
@@ -216,6 +230,7 @@ function TransferModel({ showModal, setShowModal, clickedTWallet }) {
                                             required
                                         />
 
+                                        {Error === true && <p style={{ color: "#ffff" }}>Something went wrong! </p>}
                                         {success === true && (
                                             <p style={{ color: "#ffff" }}>Transaction Successfull</p>
                                         )}

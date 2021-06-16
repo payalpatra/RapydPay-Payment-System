@@ -13,7 +13,10 @@ import {
 } from "./SignUp.elements.js";
 
 function SignUpForm() {
-  const [isClicked, setIsClicked] = useState(false);
+
+  const [success, setSuccess] = useState(false);
+  const [Error, setError] = useState(false);
+
 
   const [data, setData] = useState({
     name: "",
@@ -32,9 +35,40 @@ function SignUpForm() {
     });
   };
 
-  const PostData = () => {
+  const PostData = async () => {
 
-    setIsClicked(true)
+    let {
+      name,
+      email,
+      message,
+    } = data;
+
+    if (!name || !email || !message) {
+
+    } else {// Transfering Money Between Walllets !!
+      const response = await fetch("/api/feedback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(
+          { name, message, email }
+        )
+      });
+
+      /// Response Error Handling or Inproper Data
+      if (response.status >= 200 && response.status <= 299) {
+        console.log({ name, message, email })
+        console.log(data)
+        setSuccess(true);
+      } else {
+        setError(true)
+
+      }
+    }
+
+
+
   }
 
 
@@ -84,8 +118,14 @@ function SignUpForm() {
                 placeholder="Enter Your message"
                 required
               />
-              {isClicked === true && <p>Thank your Feedback</p>}
-              <FormButton type="submit" onClick={sendMessage}>Send Feedback</FormButton>
+
+
+
+              {Error === true && <p style={{ color: "#ffff" }}>Something went wrong! </p>}
+              {success === true && (
+                <p style={{ color: "#ffff" }}>Thank your Feedback</p>
+              )}
+              <FormButton type="submit" onClick={sendMessage}>Send Your Feedback</FormButton>
 
             </Form>
           </FormContent>

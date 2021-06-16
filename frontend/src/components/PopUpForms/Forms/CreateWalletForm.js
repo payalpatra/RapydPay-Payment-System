@@ -15,6 +15,7 @@ function CreateWalletForm() {
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
     const [fail, setFail] = useState(false);
+    const [Error, setError] = useState(false);
 
     let ewallet_reference_id = Math.floor(Math.random() * 1000000000) + 1 + Math.floor(Math.random() * 1000000000) + 1
     let balance = 0;
@@ -67,7 +68,16 @@ function CreateWalletForm() {
                 })
             });
 
+            /// Response Error Handling or Inproper Data
+            if (response.status >= 200 && response.status <= 299) {
+                setSuccess(true);
+            } else {
+                setError(true)
 
+            }
+
+
+            // Form Validation 
             if (failure === true || fail === true) {
                 setFail(false);
                 setFailure(false)
@@ -78,6 +88,8 @@ function CreateWalletForm() {
             } else {
                 setSuccess(true);
             }
+
+
 
             /// Clearing The Form Data 
             setWallet({
@@ -158,6 +170,7 @@ function CreateWalletForm() {
                         placeholder="Enter Your email"
                         required
                     />
+                    {Error === true && <p style={{ color: "#ffff" }}>Something went wrong! </p>}
                     {success === true && <p style={{ color: "#ffff" }}>Your Wallet Created</p>}
                     {failure === true && <p style={{ color: "#ffff" }}>Please Fill up all the credentials</p>}
                     {fail === true && <p style={{ color: "#ffff" }}>Invalid Phone Number</p>}

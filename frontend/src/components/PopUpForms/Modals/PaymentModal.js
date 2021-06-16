@@ -65,6 +65,7 @@ const CloseModalButton = styled(MdClose)`
 function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
+    const [Error, setError] = useState(false);
 
     const modalRef = useRef();
 
@@ -136,6 +137,14 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
             });
 
 
+            /// Response Error Handling or Inproper Data
+            if (response.status >= 200 && response.status <= 299) {
+                setSuccess(true);
+            } else {
+                setError(true)
+
+            }
+
             // Form Validations 
             if (failure === true) {
                 setFailure(false);
@@ -143,6 +152,7 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
             } else {
                 setSuccess(true);
             }
+
 
 
 
@@ -215,6 +225,8 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
                                             placeholder=""
                                             required
                                         />
+
+                                        {Error === true && <p style={{ color: "#ffff" }}>Something went wrong! </p>}
 
                                         {success === true && (
                                             <p style={{ color: "#ffff" }}>Transaction Successfull</p>

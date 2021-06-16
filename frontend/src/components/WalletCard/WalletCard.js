@@ -12,8 +12,6 @@ import WalletInfo from "../WalletCard/WalletInfo"
 
 function WalletCard() {
 
-
-
     const [wallets, setWallets] = useState([]);
 
     const fetchData = () => {

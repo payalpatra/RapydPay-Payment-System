@@ -13,6 +13,8 @@ function CreateCustomerForm() {
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
     const [fail, setFail] = useState(false);
+    const [Error, setError] = useState(false);
+
 
     const [customer, setCustomer] = useState({
         name: "",
@@ -78,6 +80,15 @@ function CreateCustomerForm() {
                 }),
             });
 
+            /// Response Error Handling or Inproper Data
+            if (response.status >= 200 && response.status <= 299) {
+                setSuccess(true);
+            } else {
+                setError(true)
+
+            }
+
+            
             if (failure === true || fail === true) {
                 setFail(false);
                 setFailure(false);
@@ -87,6 +98,8 @@ function CreateCustomerForm() {
             } else {
                 setSuccess(true);
             }
+
+
 
             /// Clearing The Form Data
             setCustomer({
@@ -107,7 +120,7 @@ function CreateCustomerForm() {
     const createCustomer = (e) => {
         e.preventDefault();
         getCustomerDetails();
-        
+
         // Vanishing Form Message
         setInterval(function () {
             setSuccess(false);
@@ -196,6 +209,7 @@ function CreateCustomerForm() {
                         required
                     />
 
+                    {Error === true && <p style={{ color: "#ffff" }}>Something went wrong! </p>}
                     {success === true && (
                         <p style={{ color: "#ffff" }}>Customer Created Successfully</p>
                     )}

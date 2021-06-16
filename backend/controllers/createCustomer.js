@@ -78,23 +78,4 @@ module.exports = function (req, res) {
 
 
 
-// const RashmitaRaniPatra = {
-//     name: 'Rashmita Rani Patra',
-//     email: 'rashmitapatra@gmail.com',
-//     customerId: 'cus_5ef732e26038bf7d4bf6dfa8db7b1db4',
-//     default_payment_method: 'card_88a9d4e1619cc7ef4f386ad785ac259d',
-//     ewallet_id: 'ewallet_8a695b403979fb788f59acf134b7e30b'
-
-// }
-
-
-// const Sameer Saikh = {
-//     _id: 60c8cb8df4915439184f4709,
-//     name: 'Sameer Saikh',
-//     email: 'sameersaikh@gmail.com',
-//     customerId: 'cus_1cc1d9ab23da1ab7282dd25b9b354afd',
-//     default_payment_method: 'card_e1830d352535afff8263222219a96864',
-//     ewallet_id: 'ewallet_16ed8aef3d84d50ca86a2cc7fd576dba'
-
-// }
 

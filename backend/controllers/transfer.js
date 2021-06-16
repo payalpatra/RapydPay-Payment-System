@@ -79,7 +79,7 @@ module.exports = function (req, res) {
             console.error(error);
         }
 
-        return res
+      
 
     }
 
