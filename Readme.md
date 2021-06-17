@@ -31,14 +31,14 @@
 
 ## 4 . Accessing payments of a Customer 
 
-* ### [Customers can pay to any wallets and the amount will be debited from the associated visa card of the cutomer from which it was initially created.](https://www.linkpicture.com/q/Payment-Form.png)
+* ### [Customers can pay to any wallets and the amount will be debited from the associated visa card of the cutomer from which it was initially created and after the successfull payment the balance in the wallet gets updated.](https://www.linkpicture.com/q/Payment-Form.png)
 
 * ### [The payment details of a particular customer conatins the Pament Id and the wallet id to which the amount was paid.](https://www.linkpicture.com/q/view-payments_1.png)
 
 * ### [If the amount is paid from the customers associated walletd it shows up in green and if it is paid to another wallet it shows in green.](https://www.linkpicture.com/q/view-payments_1.png)
 
 ## 5 . Checkout
-* ### [Products can be buyed using rapyd hosted checkout method ](https://www.linkpicture.com/q/Products2.png)
+* ### [Products can be buyed using rapyd hosted checkout ](https://www.linkpicture.com/q/Products2.png)
 
 
 ![HomePage - 1](https://user-images.githubusercontent.com/67522406/122408947-60c25e80-cfa0-11eb-8a91-bbdec9122e13.png)

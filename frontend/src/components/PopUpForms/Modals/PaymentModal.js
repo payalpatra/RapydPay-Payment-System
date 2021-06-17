@@ -122,10 +122,12 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
             amount: PaymentDetails.amount.toString(),
             ewallet: PaymentDetails.ewallet,
         };
-        console.log(Data);
 
         if (!Data.amount || !Data.ewallet) {
             setFailure(true);
+        } else if (Data.ewallet.length < 40) {
+            setFailure(true);
+
         } else {
             // Payments By Customer To e wallets
             const response = await fetch("/api/createPayment", {
@@ -137,7 +139,7 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
             });
 
 
-            /// Response Error Handling or Inproper Data
+            //  Response Error Handling or Inproper Data
             if (response.status >= 200 && response.status <= 299) {
                 setSuccess(true);
             } else {
@@ -165,7 +167,7 @@ function PaymentModal({ showModal, setShowModal, clickedTcustomer }) {
 
 
 
-            console.log(response)
+            // console.log(response)
             console.log("Payment Succesfful");
         }
     };

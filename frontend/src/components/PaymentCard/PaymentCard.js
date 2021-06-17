@@ -15,6 +15,8 @@ function PaymentCard() {
     const [clickedWallet, setclickedWallet] = useContext(Context)
 
 
+
+
     const [Payments, setPayments] = useState([]);
 
     // listTransactions
@@ -26,6 +28,20 @@ function PaymentCard() {
 
     // fetchData()
     useEffect(() => {
+        setclickedWallet({
+            "fullName": "",
+            "phone_number": "",
+            "email": "",
+            "ewallet_id": "",
+            "rapydId": "",
+            "balance": "",
+            "customer": {
+                "name": "",
+                "email": "",
+                "customerId": "",
+                "ewallet_id": ""
+            }
+        })
         fetchData();
     }, []);
 
@@ -40,7 +56,7 @@ function PaymentCard() {
             <IconContext.Provider value={{ color: '#a9b3c1', size: 64 }}>
                 <TransactionsSection>
                     <WalletsWrapper style={{ marginTop: "100px", flexDirection: "column" }}>
-                        { clickedWallet.customer.customerId && Payments_of_Clicked_Customer.length === 0 && (<ProductsHeading style={{ marginBottom: "50px", color: "#101010" }}>No Payments Found !! </ProductsHeading>)}
+                        {clickedWallet.customer.customerId.length > 1 && Payments_of_Clicked_Customer.length === 0 && (<ProductsHeading style={{ marginBottom: "50px", color: "#101010" }}>No Payments Found !! </ProductsHeading>)}
 
                         {Payments_of_Clicked_Customer.length > 0 &&
 

@@ -86,11 +86,11 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
                 <ProductsCardFeatures style={{ marginTop: "5px", marginBottom: "20px" }}>
                     <ProductsCardFeature style={{ fontSize: "18px", color: "#ffff", marginBottom: "20px" }}>Balance: ${balance}</ProductsCardFeature>
                     <ProductsCardFeature>{phone_number}</ProductsCardFeature>
-                    <ProductsCardFeature>{ewallet_id.slice(8)}</ProductsCardFeature>
                     <ProductsCardFeature>{email}</ProductsCardFeature>
+                    <ProductsCardFeature style = {{fontSize: "14px"}}>{ewallet_id}</ProductsCardFeature>
                 </ProductsCardFeatures>
 
-                <Button style={{ marginBottom: "12PX" }} primary onClick={transfer}>
+                <Button style={{ marginBottom: "12px" }} primary onClick={transfer}>
                     Send Money</Button>
                 <TransferModal clickedTWallet={clickedTWallet} ewallet_id={ewallet_id} rapydId={rapydId} showModal={show} setShowModal={set}
 

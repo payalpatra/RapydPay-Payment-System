@@ -19,11 +19,11 @@ function TransactionInfo({ amount, source_ewallet_id, destination_ewallet_id, Tr
         <TransactionsCard>
 
             <ProductsCardInfo>
-                <ProductsCardPlan>Transaction Id : {TransactionId}</ProductsCardPlan>
+                <ProductsCardPlan style={{ fontSize: "23px"}}>Transaction Id : {TransactionId}</ProductsCardPlan>
                 <ProductsCardFeatures style={{ marginTop: "5px", marginBottom: "20px" }}>
                     {requestedWalletId === source_ewallet_id ?
-                        <ProductsCardFeature style={{ fontSize: "17px", color: "#EE4B2B" }}>Paid To: {destination_ewallet_id.slice(8)}</ProductsCardFeature> :
-                        <ProductsCardFeature style={{ fontSize: "17px", color: "#228B22" }}>Recieved From: {source_ewallet_id.slice(8)}</ProductsCardFeature>
+                        <ProductsCardFeature style={{ fontSize: "15px", color: "#EE4B2B" }}>Paid To: {destination_ewallet_id}</ProductsCardFeature> :
+                        <ProductsCardFeature style={{ fontSize: "15px", color: "#228B22" }}>Recieved From: {source_ewallet_id}</ProductsCardFeature>
                     }
                     <ProductsCardFeature style={{ fontSize: "18px", color: "#ffff", marginBottom: "20px" }}>Amount: ${amount}</ProductsCardFeature>
                     <ProductsCardFeature> Date : {created_at} </ProductsCardFeature>
