@@ -40,7 +40,7 @@
 ## 5 . Checkout
 * ### [Products can be buyed using rapyd hosted checkout ](https://www.linkpicture.com/q/Products2.png)
 
-
+# Snapshots
 ![HomePage - 1](https://user-images.githubusercontent.com/67522406/122408947-60c25e80-cfa0-11eb-8a91-bbdec9122e13.png)
 ![HomePage - 2](https://user-images.githubusercontent.com/67522406/122408962-6455e580-cfa0-11eb-94f9-7c7e62f806d7.png)
 ![HomePage - 3](https://user-images.githubusercontent.com/67522406/122408983-67e96c80-cfa0-11eb-95d4-b99ce6f91d5d.png)
@@ -50,9 +50,9 @@
 ![ServicePage - 1](https://user-images.githubusercontent.com/67522406/122409042-759ef200-cfa0-11eb-86cb-163b8602f6a7.png)
 ![ServicePage - 2](https://user-images.githubusercontent.com/67522406/122409065-7899e280-cfa0-11eb-8b98-7c0daef79d6f.png)
 ![ServicePage - 3](https://user-images.githubusercontent.com/67522406/122409086-7b94d300-cfa0-11eb-8778-ee687b50ae97.png)
+![Wallet](https://user-images.githubusercontent.com/67522406/122463538-54a3c480-cfd3-11eb-94b1-4d6c4afc915b.png)
 ![Wallet Form](https://user-images.githubusercontent.com/67522406/122409112-82bbe100-cfa0-11eb-9008-1b75e247d6fb.png)
 ![Wallet Transfer](https://user-images.githubusercontent.com/67522406/122409134-864f6800-cfa0-11eb-84c2-e17faf239077.png)
-![Wallet](https://user-images.githubusercontent.com/67522406/122409152-89e2ef00-cfa0-11eb-992c-1b48fc824929.png)
-![View Transactions](https://user-images.githubusercontent.com/67522406/122409175-8c454900-cfa0-11eb-9af5-b99be958072e.png)
+![View Transactions](https://user-images.githubusercontent.com/67522406/122463739-9af92380-cfd3-11eb-8232-2e90870a9c14.png)
 ![Customers](https://user-images.githubusercontent.com/67522406/122409218-96ffde00-cfa0-11eb-8354-2f1ae762e90d.png)
-![view payments](https://user-images.githubusercontent.com/67522406/122409238-9cf5bf00-cfa0-11eb-8431-f6fa4bd598f3.png)
+![view payments](https://user-images.githubusercontent.com/67522406/122466831-6be4b100-cfd7-11eb-8bd6-4289cf6bd4d2.png)

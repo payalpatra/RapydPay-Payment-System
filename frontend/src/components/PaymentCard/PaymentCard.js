@@ -19,29 +19,22 @@ function PaymentCard() {
 
     const [Payments, setPayments] = useState([]);
 
+
     // listTransactions
     const fetchData = () => {
+        setclickedWallet({
+            customer:{
+                "customerId": ""
+            }
+        })
         return fetch("/api/listPayments")
             .then((response) => response.json())
             .then((data) => setPayments(data));
     }
 
+
     // fetchData()
     useEffect(() => {
-        setclickedWallet({
-            "fullName": "",
-            "phone_number": "",
-            "email": "",
-            "ewallet_id": "",
-            "rapydId": "",
-            "balance": "",
-            "customer": {
-                "name": "",
-                "email": "",
-                "customerId": "",
-                "ewallet_id": ""
-            }
-        })
         fetchData();
     }, []);
 
@@ -49,14 +42,12 @@ function PaymentCard() {
     let Payments_of_Clicked_Customer = Payments.filter(payment => payment.customerId === clickedWallet.customer.customerId)
 
 
-
-
     return Payments_of_Clicked_Customer && (
         <div id="PaymentsComponent" style={{ marginBottom: "50px" }}>
             <IconContext.Provider value={{ color: '#a9b3c1', size: 64 }}>
                 <TransactionsSection>
                     <WalletsWrapper style={{ marginTop: "100px", flexDirection: "column" }}>
-                        {clickedWallet.customer.customerId.length > 1 && Payments_of_Clicked_Customer.length === 0 && (<ProductsHeading style={{ marginBottom: "50px", color: "#101010" }}>No Payments Found !! </ProductsHeading>)}
+                        {clickedWallet.customer.customerId && Payments_of_Clicked_Customer.length === 0 && (<ProductsHeading style={{ marginBottom: "50px", color: "#101010" }}>No Payments Found !! </ProductsHeading>)}
 
                         {Payments_of_Clicked_Customer.length > 0 &&
 
