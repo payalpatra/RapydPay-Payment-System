@@ -4,6 +4,59 @@
 
 ### This is a Payment Platorm that supports sending and transfering of payments. This application uses [Rapyd](https://www.rapyd.net/) payment APIs to handle payments of the user.
 
+# Prerequisite
+
+### [Rapyd Account](https://www.rapyd.net/)
+
+### [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
+
+### [Node.js](https://nodejs.org/en/download/)
+
+
+
+# Installation Guidelines
+
+## STEP 1
+
+ ```sh
+   git clone https://github.com/payalpatra/RapydPay-Payment-System.git
+   ```
+
+## STEP 2
+* ### Note - Run this command in the root directory as well as in the frontend directory.
+
+```sh
+   npm install
+   ```
+
+## STEP 3
+
+* #### [Get Your Rapyd Access key and Secret key from Rapyd client portal](https://dashboard.rapyd.net/developers)
+* #### Note - Create .env file in the root directory with following variables. 
+
+
+  ```sh 
+  PORT = 5000
+  ACCESS_KEY = 
+  SECRET_KEY = 
+  MONGO_URI = 
+   ```
+   
+## STEP 4
+
+### Run this in the root directory 
+
+```sh
+ npm run dev
+   ```
+
+## Test cards 
+* ### Note - Initially the total balance of the wallets will be zero. So you can create a customer with the wallet id and rapyd test cards to fund your wallets.
+* ### [Here's a link to Rapyd Test cards for payments and transactions](https://docs.rapyd.net/build-with-rapyd/reference/testing-for-payments-api)
+
+
+
+
 # Features 
 ## 1. Create Wallet Features
 * ### [User can fill up their credentials and create wallet which generates a unique wallet ID.](https://www.linkpicture.com/q/Wallet-Form.png)
@@ -20,14 +73,17 @@
 * ### [If the amount is credited to the wallet it shows in green and if the amount is debited it shows in Red.](https://user-images.githubusercontent.com/67522406/122463739-9af92380-cfd3-11eb-8232-2e90870a9c14.png)
 
 ### Important Points To remember for creating wallet
-#### 1. You can create only one wallet with single Email-ID or Phone Number.
-#### 2. The number should be in E.164 format (Ex- +918247564782)
+* ####  You can create only one wallet with single Email-ID or Phone Number.
+* ####  The number should be in E.164 format (Ex- +918247564782)
 
-## 3. Creating customer for a wallet
+## 3. Creating customer with a wallet
 
 * ### [Customer can be created for each wallet with a default Visa card number and details of the customer.](https://www.linkpicture.com/q/Create-Customer.png)
 
 * ### [Customer Section will contain the information of all the customers. Each customer will have their own customeID and walletd id associated with it.](https://www.linkpicture.com/q/Customers.png)
+
+### Important Points To remember for creating customer
+* ####  You can create only one customer using one wallet but you can fund multiple wallets using a single customer.
 
 ## 4 . Accessing payments of a Customer 
 
@@ -59,3 +115,13 @@
 ![View Transactions](https://user-images.githubusercontent.com/67522406/122463739-9af92380-cfd3-11eb-8232-2e90870a9c14.png)
 ![Customers](https://user-images.githubusercontent.com/67522406/122409218-96ffde00-cfa0-11eb-8354-2f1ae762e90d.png)
 ![view payments](https://user-images.githubusercontent.com/67522406/122466831-6be4b100-cfd7-11eb-8bd6-4289cf6bd4d2.png)
+
+
+
+## Author
+### Payal Patra
+
+<a href="https://linkedin.com/in/payalpatra105" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="payalpatra105" height="30" width="40" /></a>
+<a href="https://github.com/payalpatra" target="blank"><img align="center" src="https://www.svgrepo.com/show/68072/github-logo-face.svg" alt="payalpatra105" height="30" width="40" /></a>
+<a href="https://instagram.com/p_iconic_" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="p_iconic_" height="30" width="40" /></a>
+
