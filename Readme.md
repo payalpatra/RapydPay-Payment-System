@@ -1,3 +1,46 @@
+# RapydPay Payment System
+
+# Overview
+
+### This is a Payment Platorm that supports sending and transfering of payments. This application uses [Rapyd](https://www.rapyd.net/) payment APIs to handle payments of the user.
+
+# Features 
+## 1. Create Wallet Features
+* ### [User can fill up their credentials and create wallet which generates a unique wallet ID.](https://www.linkpicture.com/q/Wallet-Form.png)
+* ### [All the Wallet Details with the unique wallet ID shows up in the wallet Section.](https://www.linkpicture.com/q/Wallet.png)
+* ### [Money Transactions can be done between wallets with Sender's WalletID , Amount (in USD) and Recievers WalletID,  The application automatically fills up the senders wallet ID when the sender clicks on the SEND MONEY Button of a particular Wallet.](https://www.linkpicture.com/q/Wallet-Transfer_1.png)
+
+* ### [The total balance gets updated after successfull Transaction between wallets.](https://www.linkpicture.com/q/View-Transactions.png)
+
+## 2. Accesing Transactions of a Wallet
+
+* ### [Transactions of a particular wallet can be viewed by clicking on the view transaction button on each wallet card.](https://www.linkpicture.com/q/View-Transactions.png)
+* ### [Transaction detail conatins the transacion ID , Amount Debited/credited, Date and wallet id of the wallet to which the amount is paid or recieved.](https://www.linkpicture.com/q/View-Transactions.png)
+
+* ### [If the amount is credited to the wallet it shows in green and if the amount is debited it shows in Red.](https://www.linkpicture.com/q/View-Transactions.png)
+
+### Important Points To remember for creating wallet
+#### 1. You can create only one wallet with single Email-ID or Phone Number.
+#### 2. The number should be in E.164 format (Ex- +918247564782)
+
+## 3. Creating customer for a wallet
+
+* ### [Customer can be created for each wallet with a default Visa card number and details of the customer.](https://www.linkpicture.com/q/Create-Customer.png)
+
+* ### [Customer Section will contain the information of all the customers. Each customer will have their own customeID and walletd id associated with it.](https://www.linkpicture.com/q/Customers.png)
+
+## 4 . Accessing payments of a Customer 
+
+* ### [Customers can pay to any wallets and the amount will be debited from the associated visa card of the cutomer from which it was initially created.](https://www.linkpicture.com/q/Payment-Form.png)
+
+* ### [The payment details of a particular customer conatins the Pament Id and the wallet id to which the amount was paid.](https://www.linkpicture.com/q/view-payments_1.png)
+
+* ### [If the amount is paid from the customers associated walletd it shows up in green and if it is paid to another wallet it shows in green.](https://www.linkpicture.com/q/view-payments_1.png)
+
+## 5 . Checkout
+* ### [Products can be buyed using rapyd hosted checkout method ](https://www.linkpicture.com/q/Products2.png)
+
+
 ![HomePage - 1](https://user-images.githubusercontent.com/67522406/122408947-60c25e80-cfa0-11eb-8a91-bbdec9122e13.png)
 ![HomePage - 2](https://user-images.githubusercontent.com/67522406/122408962-6455e580-cfa0-11eb-94f9-7c7e62f806d7.png)
 ![HomePage - 3](https://user-images.githubusercontent.com/67522406/122408983-67e96c80-cfa0-11eb-95d4-b99ce6f91d5d.png)
