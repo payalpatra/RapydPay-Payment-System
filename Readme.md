@@ -7,17 +7,17 @@
 # Features 
 ## 1. Create Wallet Features
 * ### [User can fill up their credentials and create wallet which generates a unique wallet ID.](https://www.linkpicture.com/q/Wallet-Form.png)
-* ### [All the Wallet Details with the unique wallet ID shows up in the wallet Section.](https://www.linkpicture.com/q/Wallet.png)
+* ### [All the Wallet Details with the unique wallet ID shows up in the wallet Section.](https://user-images.githubusercontent.com/67522406/122463538-54a3c480-cfd3-11eb-94b1-4d6c4afc915b.png)
 * ### [Money Transactions can be done between wallets with Sender's WalletID , Amount (in USD) and Recievers WalletID,  The application automatically fills up the senders wallet ID when the sender clicks on the SEND MONEY Button of a particular Wallet.](https://www.linkpicture.com/q/Wallet-Transfer_1.png)
 
-* ### [The total balance gets updated after successfull Transaction between wallets.](https://www.linkpicture.com/q/View-Transactions.png)
+* ### [The total balance gets updated after successfull Transaction between wallets.](https://user-images.githubusercontent.com/67522406/122463739-9af92380-cfd3-11eb-8232-2e90870a9c14.png)
 
 ## 2. Accesing Transactions of a Wallet
 
-* ### [Transactions of a particular wallet can be viewed by clicking on the view transaction button on each wallet card.](https://www.linkpicture.com/q/View-Transactions.png)
-* ### [Transaction detail conatins the transacion ID , Amount Debited/credited, Date and wallet id of the wallet to which the amount is paid or recieved.](https://www.linkpicture.com/q/View-Transactions.png)
+* ### [Transactions of a particular wallet can be viewed by clicking on the view transaction button on each wallet card.](https://user-images.githubusercontent.com/67522406/122463739-9af92380-cfd3-11eb-8232-2e90870a9c14.png)
+* ### [Transaction detail conatins the transacion ID , Amount Debited/credited, Date and wallet id of the wallet to which the amount is paid or recieved.](https://user-images.githubusercontent.com/67522406/122463739-9af92380-cfd3-11eb-8232-2e90870a9c14.png)
 
-* ### [If the amount is credited to the wallet it shows in green and if the amount is debited it shows in Red.](https://www.linkpicture.com/q/View-Transactions.png)
+* ### [If the amount is credited to the wallet it shows in green and if the amount is debited it shows in Red.](https://user-images.githubusercontent.com/67522406/122463739-9af92380-cfd3-11eb-8232-2e90870a9c14.png)
 
 ### Important Points To remember for creating wallet
 #### 1. You can create only one wallet with single Email-ID or Phone Number.
@@ -31,11 +31,14 @@
 
 ## 4 . Accessing payments of a Customer 
 
-* ### [Customers can pay to any wallets and the amount will be debited from the associated visa card of the cutomer from which it was initially created and after the successfull payment the balance in the wallet gets updated.](https://www.linkpicture.com/q/Payment-Form.png)
+* ### [Customers can pay to any wallets and the amount will be debited from the associated visa card of the cutomer from which it was initially created. ](https://www.linkpicture.com/q/Payment-Form.png)
 
-* ### [The payment details of a particular customer conatins the Pament Id and the wallet id to which the amount was paid.](https://www.linkpicture.com/q/view-payments_1.png)
+* ### [The amount paid by the customer is added to the wallet and the balance gets updated in the total balance of the ewallet.](https://user-images.githubusercontent.com/67522406/122466831-6be4b100-cfd7-11eb-8bd6-4289cf6bd4d2.png)
 
-* ### [If the amount is paid from the customers associated walletd it shows up in green and if it is paid to another wallet it shows in green.](https://www.linkpicture.com/q/view-payments_1.png)
+
+* ### [The payment details of a particular customer conatins the Pament Id and the wallet id to which the amount was paid.](https://user-images.githubusercontent.com/67522406/122466831-6be4b100-cfd7-11eb-8bd6-4289cf6bd4d2.png)
+
+* ### [If the amount is paid from the customers associated wallet it shows up in green and if it is paid to another wallet it shows in green.](https://www.linkpicture.com/q/view-payments_1.png)
 
 ## 5 . Checkout
 * ### [Products can be buyed using rapyd hosted checkout ](https://www.linkpicture.com/q/Products2.png)
