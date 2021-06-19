@@ -29,6 +29,10 @@ function TransactionCard() {
 
 
 
+    const mappedTransactions = Transactions.filter(transaction => transaction.source_ewallet_id === clickedWallet.ewallet_id || transaction.destination_ewallet_id === clickedWallet.ewallet_id)
+    console.log(mappedTransactions)
+
+
     return (
         <div id="TransactionsComponent" style={{ marginBottom: "50px" }}>
             <IconContext.Provider value={{ color: '#a9b3c1', size: 64 }}>
@@ -45,7 +49,7 @@ function TransactionCard() {
                         <TransactionsContainer>
                             {
 
-                                Transactions.map(Transaction =>
+                                mappedTransactions.map(Transaction =>
                                 (
 
                                     <TransactionInfo

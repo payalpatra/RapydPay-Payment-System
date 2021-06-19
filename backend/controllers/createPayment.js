@@ -4,6 +4,7 @@ const getHeaders = require("../functions/headers");
 const getRequestData = require("../functions/requestData");
 const getHelpers = require("../functions/helpers");
 const Payment = require("../models/Payment");
+const Transaction = require("../models/Transaction");
 const Wallet = require("../models/Wallet");
 
 const helpers = getHelpers();
@@ -75,6 +76,29 @@ module.exports = function (req, res) {
         })
         // Save 
         newPayment.save()
+
+        // New Transaction
+
+        const newTransaction = new Transaction({
+            // paymentId: response.data.id,
+            // customerId: customer,
+            // amount: response.data.amount,
+            // ewallet_id: ewallet,
+            // created_at: dateTime
+
+
+
+            transactionId: response.data.id,
+            amount: response.data.amount,
+            destination_phone_number: "",
+            destination_ewallet_id: ewallet,
+            source_ewallet_id: customer,
+            created_at: dateTime
+        })
+        // Save 
+        newTransaction.save()
+
+
 
 
 

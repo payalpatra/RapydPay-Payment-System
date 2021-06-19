@@ -19,14 +19,10 @@ function PaymentCard() {
 
     const [Payments, setPayments] = useState([]);
 
+  
 
     // listTransactions
     const fetchData = () => {
-        setclickedWallet({
-            customer:{
-                "customerId": ""
-            }
-        })
         return fetch("/api/listPayments")
             .then((response) => response.json())
             .then((data) => setPayments(data));
@@ -36,6 +32,10 @@ function PaymentCard() {
     // fetchData()
     useEffect(() => {
         fetchData();
+        setclickedWallet(pre => ({
+            ...pre,
+           
+          }))
     }, []);
 
     /// Payments of requested Customer 

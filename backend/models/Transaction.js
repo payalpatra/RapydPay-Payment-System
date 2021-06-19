@@ -21,7 +21,7 @@ const transactionSchema = mongoose.Schema({
     },
     destination_phone_number: {
         type: String,
-        required: true,
+        required: false,
     },
     destination_ewallet_id: {
         type: String,

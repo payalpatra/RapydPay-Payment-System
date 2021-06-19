@@ -83,12 +83,12 @@ function CreateCustomerForm() {
             /// Response Error Handling or Inproper Data
             if (response.status >= 200 && response.status <= 299) {
                 setSuccess(true);
-            } else {
+            } else if (response.status >= 400) {
                 setError(true)
 
             }
 
-            
+
             if (failure === true || fail === true) {
                 setFail(false);
                 setFailure(false);

@@ -58,8 +58,6 @@ function SignUpForm() {
 
       /// Response Error Handling or Inproper Data
       if (response.status >= 200 && response.status <= 299) {
-        console.log({ name, message, email })
-        console.log(data)
         setSuccess(true);
       } else {
         setError(true)
