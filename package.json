@@ -2,12 +2,11 @@
   "name": "rapyd-pay-application",
   "version": "1.0.0",
   "description": "This is a fintech application",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node Backend/server.js",
-    "server": "nodemon Backend/server.js",
-    "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "start": "node server.js",
+    "start:dev": "nodemon server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Payal Patra",
   "license": "ISC",
