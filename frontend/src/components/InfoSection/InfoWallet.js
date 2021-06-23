@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Link as Scroll } from "react-scroll";
 import { Container, Button } from '../../globalStyles';
 import {
     InfoSecWallet,
@@ -7,8 +9,6 @@ import {
     Heading,
 } from './InfoSection.elements';
 
-import Modal from "../PopUpForms/Modals/CreateWalletModel";
-import CreateCustomerModel from '../PopUpForms/Modals/CreateCustomerModel';
 
 
 function InfoWallet({
@@ -17,20 +17,11 @@ function InfoWallet({
     lightText,
     headline,
     buttonLabel,
-    buttonLabel2
+    link,
+    scroll
 
 }) {
-    const [showModal, setShowModal] = useState(false);
 
-    const openModal = () => {
-        setShowModal(prev => !prev);
-    };
-
-
-    const openForm = () => {
-        openModal()
-
-    }
 
     return (
         <>
@@ -39,27 +30,18 @@ function InfoWallet({
                     <InfoColumn>
                         <TextWrapper >
                             <Heading style={{ marginTop: "30px" }} lightText={lightText}>{headline}</Heading>
-                            {buttonLabel ? (<>
-                                <Button onClick={openForm} big style={{ marginTop: "30px", marginRight: "11px" }} fontBig primary={primary}>
+                            {link ? (<Link to={link}>
+                                <Button big fontBig primary={primary}>
                                     {buttonLabel}
                                 </Button>
-                                <Modal showModal={showModal} setShowModal={setShowModal} />
-                            </>
-                            )
+                            </Link>)
                                 :
-                                (<></>)
+                                (<Scroll spy={true} smooth={true} to={scroll}>
+                                    <Button big fontBig primary={primary}>
+                                        {buttonLabel}
+                                    </Button>
+                                </Scroll>)
                             }
-                            {buttonLabel2 ? (<>
-                                <Button onClick={openForm} big style={{ marginTop: "30px", marginRight: "11px" }} fontBig primary={primary}>
-                                    {buttonLabel2}
-                                </Button>
-                                <CreateCustomerModel showModal={showModal} setShowModal={setShowModal} />
-                            </>
-                            )
-                                :
-                                (<></>)
-                            }
-
 
 
                         </TextWrapper>

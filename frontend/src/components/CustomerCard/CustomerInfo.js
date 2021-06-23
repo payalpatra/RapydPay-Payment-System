@@ -7,44 +7,14 @@ import {
     ProductsCardFeature,
 } from "../ProductsCard/ProductCard.elements.js";
 import { Button } from "../../globalStyles";
+import { Link } from "react-router-dom"
 import { Link as Scroll } from "react-scroll";
-import PaymentModal from "../PopUpForms/Modals/PaymentModal";
 import { Context } from "../../Store";
 
 function CustomerInfo({ name, email, customerId, ewallet_id }) {
 
-
-
-    const [show, set] = useState(false);
     const [isClicked, setIsClicked] = useState(false)
-    const [clickedTcustomer, setclickedTcustomer] = useState({
-        "name": "",
-        "email": "",
-        "customerId": "",
-        "ewallet_id": "",
-    })
     const [clickedWallet, setclickedWallet] = useContext(Context)
-
-
-
-    // For Money Transfer
-    const openTheModal = () => {
-        set(prev => !prev);
-    }
-
-
-    //// Clicked Wallet 
-    const payment = () => {
-        openTheModal()
-        setclickedTcustomer({
-            "name": name,
-            "email": email,
-            "customerId": customerId,
-            "ewallet_id": ewallet_id,
-        })
-
-    }
-
 
 
     // To Show Payments and get customer id
@@ -67,7 +37,7 @@ function CustomerInfo({ name, email, customerId, ewallet_id }) {
         })
 
         console.log("I am the clicked wallet ", clickedWallet);
-       
+
     }
 
     const closePayments = () => {
@@ -100,11 +70,10 @@ function CustomerInfo({ name, email, customerId, ewallet_id }) {
 
                 </ProductsCardFeatures>
 
-                <Button style={{ marginBottom: "12PX" }} primary onClick={payment}>
-                    Send Payment</Button>
-                <PaymentModal clickedTcustomer={clickedTcustomer} showModal={show} setShowModal={set}
+                <Link to="/payment" style={{ marginBottom: "12px" }} primary >
+                    <Button primary >
+                        Send Payment</Button></Link>
 
-                />
                 {isClicked === true ? (<Button style={{ backgroundColor: "rgb(238, 75, 43)" }} primary onClick={closePayments}>
                     Close Payments</Button>) : (<Scroll spy={true} smooth={true} to="PaymentsComponent">
                         <Button primary onClick={showPayments}>

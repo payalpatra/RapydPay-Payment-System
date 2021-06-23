@@ -15,8 +15,6 @@ function PaymentCard() {
     const [clickedWallet, setclickedWallet] = useContext(Context)
 
 
-
-
     const [Payments, setPayments] = useState([]);
 
   

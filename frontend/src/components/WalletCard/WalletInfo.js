@@ -8,44 +8,15 @@ import {
 } from "../ProductsCard/ProductCard.elements.js";
 import { Button } from "../../globalStyles";
 import { Link as Scroll } from "react-scroll";
-import TransferModal from "../PopUpForms/Modals/TransferModel";
+import { Link } from "react-router-dom"
 import { Context } from "../../Store";
 
 function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balance }) {
 
-    const [show, set] = useState(false);
+
     const [isClicked, setIsClicked] = useState(false)
-    const [clickedTWallet, setclickedTWallet] = useState({
-        "fullName": "",
-        "phone_number": "",
-        "email": "",
-        "ewallet_id": "",
-        "rapydId": "",
-        "balance": ""
-    })
     const [clickedWallet, setclickedWallet] = useContext(Context)
 
-
-
-    // For Money Transfer
-    const openTheModal = () => {
-        set(prev => !prev);
-    }
-
-
-    //// Clicked Wallet 
-    const transfer = () => {
-        openTheModal()
-        setclickedTWallet({
-            "fullName": fullName,
-            "phone_number": phone_number,
-            "email": email,
-            "ewallet_id": ewallet_id,
-            "rapydId": rapydId,
-            "balance": balance
-        })
-
-    }
 
 
 
@@ -87,15 +58,13 @@ function WalletInfo({ fullName, phone_number, email, ewallet_id, rapydId, balanc
                     <ProductsCardFeature style={{ fontSize: "18px", color: "#ffff", marginBottom: "20px" }}>Balance: ${balance}</ProductsCardFeature>
                     <ProductsCardFeature>{phone_number}</ProductsCardFeature>
                     <ProductsCardFeature>{email}</ProductsCardFeature>
-                    <ProductsCardFeature style = {{fontSize: "14px"}}>{ewallet_id}</ProductsCardFeature>
+                    <ProductsCardFeature style={{ fontSize: "14px" }}>{ewallet_id}</ProductsCardFeature>
                 </ProductsCardFeatures>
 
-                <Button style={{ marginBottom: "12px" }} primary onClick={transfer}>
-                    Send Money</Button>
-                <TransferModal clickedTWallet={clickedTWallet} ewallet_id={ewallet_id} rapydId={rapydId} showModal={show} setShowModal={set}
-
-                />
-                {isClicked === true ? (<Button style={{ backgroundColor: "rgb(238, 75, 43)" }} primary onClick={closeTransaction}>
+                <Link to="/transfer" style={{ marginBottom: "12px" }} primary >
+                    <Button primary >  Send Money </Button></Link>
+        
+                {isClicked === true ? (<Button style={{ backgroundColor: "rgb(238, 75, 43)", textDecoration: "none" }} primary onClick={closeTransaction}>
                     Close Transactions</Button>) : (<Scroll spy={true} smooth={true} to="TransactionsComponent">
                         <Button primary onClick={showTransaction}>
                             View Transactions</Button>

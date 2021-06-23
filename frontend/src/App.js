@@ -11,6 +11,15 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import { Navbar, Footer } from "./components";
 
+//  Rapyd Interaction Forms
+import CreateCustomer from "./components/Forms/CreateCustomer"
+import Transfer from "./components/Forms/Transfer"
+import CreateWallet from "./components/Forms/CreateWallet"
+import Payment from "./components/Forms/Payment"
+
+
+
+
 function App() {
   return (
     <Store>
@@ -25,6 +34,14 @@ function App() {
           <Route path="/sign-up" component={SignUpForm} />
           <Route path="/wallet" component={Wallet} />
           <Route path="/customer" component={Customer} />
+
+          {/* Forms */}
+          <Route path="/createCustomer" component={CreateCustomer} />
+          <Route path="/transfer" component={Transfer} />
+          <Route path="/createWallet" component={CreateWallet} />
+          <Route path="/payment" component={Payment} />
+          
+       
         </Switch>
         <Footer />
       </Router>
