@@ -128,7 +128,7 @@ function CreateWallet() {
                     <Icon to="/wallet">RapydPay </Icon>
                     <FormContent>
                         <Form post >
-                            <FormH1>Create Customer</FormH1>
+                            <FormH1>Create Wallet</FormH1>
                             <FormLabel htmlFor="for">First Name</FormLabel>
                             <FormInput
                                 type="text"

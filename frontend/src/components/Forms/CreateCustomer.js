@@ -4,10 +4,10 @@ import {
   FormWrap,
   Icon,
   FormContent,
-  Form,
-  FormH1,
+  Form2,
+  FormmH1,
   FormLabel,
-  FormInput,
+  FormInput2,
   FormButton,
 } from "../SignUpForm/SignUp.elements.js";
 
@@ -104,7 +104,7 @@ function CreateCustomer() {
         setSuccess(true);
       }
 
-      /// Clearing The Form Data
+      /// Clearing The Form2 Data
       setCustomer({
         name: "",
         email: "",
@@ -124,7 +124,7 @@ function CreateCustomer() {
     e.preventDefault();
     getCustomerDetails();
 
-    // Vanishing Form Message
+    // Vanishing Form2 Message
     setInterval(function () {
       setSuccess(false);
       setFailure(false);
@@ -138,10 +138,10 @@ function CreateCustomer() {
         <FormWrap>
           <Icon to="/wallet">RapydPay </Icon>
           <FormContent>
-            <Form post>
-              <FormH1>Create Customer</FormH1>
+            <Form2 post>
+              <FormmH1>Create Customer</FormmH1>
               <FormLabel htmlFor="for">Full Name</FormLabel>
-              <FormInput
+              <FormInput2
                 type="text"
                 id="Input1"
                 name="name"
@@ -152,7 +152,7 @@ function CreateCustomer() {
               />
 
               <FormLabel htmlFor="for">Email</FormLabel>
-              <FormInput
+              <FormInput2
                 type="text"
                 id="Input2"
                 name="email"
@@ -163,7 +163,7 @@ function CreateCustomer() {
               />
 
               <FormLabel htmlFor="for">Wallet ID </FormLabel>
-              <FormInput
+              <FormInput2
                 type="text"
                 id="Input3"
                 name="ewallet"
@@ -173,7 +173,7 @@ function CreateCustomer() {
                 required
               />
               <FormLabel htmlFor="for">Card Number</FormLabel>
-              <FormInput
+              <FormInput2
                 type="text"
                 id="Input4"
                 name="number"
@@ -183,7 +183,7 @@ function CreateCustomer() {
                 required
               />
               <FormLabel htmlFor="for">Expiration Month</FormLabel>
-              <FormInput
+              <FormInput2
                 type="text"
                 id="Input5"
                 name="expiration_month"
@@ -193,7 +193,7 @@ function CreateCustomer() {
                 required
               />
               <FormLabel htmlFor="for">Expiration Year</FormLabel>
-              <FormInput
+              <FormInput2
                 type="text"
                 id="Input6"
                 name="expiration_year"
@@ -203,7 +203,7 @@ function CreateCustomer() {
                 required
               />
               <FormLabel htmlFor="for">CVV</FormLabel>
-              <FormInput
+              <FormInput2
                 type="text"
                 id="Input7"
                 name="cvv"
@@ -228,7 +228,7 @@ function CreateCustomer() {
                 <p style={{ color: "#ffff" }}>Invalid Card Credentials</p>
               )}
               <FormButton onClick={createCustomer}>Create Customer</FormButton>
-            </Form>
+            </Form2>
           </FormContent>
         </FormWrap>
       </Container>
