@@ -23,7 +23,7 @@ export const ProductData = [
     url : "https://sandboxcheckout.rapyd.net?token=checkout_c34439a0f6a85ab0b9fa650f923811ff"
   },
   {
-    imgSrc: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/rockerz-255-neon_e6de17f7-ed98-4f41-9af5-b024d0a44389_720x.png?v=1613457241",
+    imgSrc: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/32011675-2ad8-4b99-9787-895caf201d28_720x.png?v=1625045244",
     title: "BOAT Rockerz 255 Earphones",
     price: 16.47,
     url : "https://sandboxcheckout.rapyd.net?token=checkout_963a5abe1db40268d0b3d6146e6eab5b"
@@ -35,13 +35,13 @@ export const ProductData = [
     url: "https://sandboxcheckout.rapyd.net?token=checkout_8dafb5535c98ce2bb8fb55e02a8372da"
   },
   {
-    imgSrc: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main2_da0e9736-c4b9-43cc-9ac6-3bf8b56eb0c3_720x.png?v=1618378311",
+    imgSrc: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/83f51c9d-cc01-4fd7-96ac-69ee47fc71fb_720x.png?v=1625157599",
     title: "Xplorer‌‌ Watch",
     price: 54.93,
     url: "https://sandboxcheckout.rapyd.net?token=checkout_08b86fcbae5e2c5d4410b61162fad3d4"
   },
   {
-    imgSrc: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/stone-260-limegreen_300x.png?v=1613743685",
+    imgSrc: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/54f2cdc7-78bc-4b1b-9c57-1513fa636a5d_720x.png?v=1625045738",
     title: "Stone 260",
     price: 20.59,
     url: "https://sandboxcheckout.rapyd.net?token=checkout_856bb8e4642eab967dc833574f43366b"
